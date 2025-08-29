@@ -16,16 +16,16 @@ modules:
     scripts:
       - nvidia/nvidia-setup.sh
 
-  - from-file: /pkgs/files.yml
+  - from-file: pkgs/files.yml
 
   - type: files
     files:
       - source: system/dev/starship-profile
         destination: /etc/profile.d/
 
-  - from-file: /pkgs/rpms.yml
+  - from-file: pkgs/rpms.yml
 
-  - from-file: /pkgs/flatpaks.yml
+  - from-file: pkgs/flatpaks.yml
 
   - type: gschema-overrides
     include:
@@ -41,7 +41,7 @@ modules:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
 
-  - from-file: /pkgs/autofirma.yml
+  - from-file: pkgs/autofirma.yml
 
   - type: script
     scripts:
