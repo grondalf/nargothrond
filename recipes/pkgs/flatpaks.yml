@@ -8,7 +8,8 @@ modules:
           title: Flathub (user)
       - notify: true
         scope: system
-        repo: Flathub (system)
+        repo: 
+          title: Flathub (system)
         install:
           - org.mozilla.firefox
           - com.github.tchx84.Flatseal
