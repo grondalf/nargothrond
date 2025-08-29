@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
+modules:
+  - type: default-flatpaks
+    configurations:
+      - scope: user
+        repo:
+          title: Flathub (user)
+      - notify: true
+        scope: system
+        repo: Flathub (system)
+        install:
+          - org.mozilla.firefox
+          - com.github.tchx84.Flatseal
+          - com.mattjakeman.ExtensionManager
+          - de.haeckerfelix.Fragments
+          - io.gitlab.adhami3310.Impression
+          - org.gnome.Calculator
+          - org.gnome.Calendar
+          - org.gnome.Characters
+          - org.gnome.Contacts
+          - org.gnome.Logs
+          - org.gnome.Loupe
+          - org.gnome.SimpleScan
+          - org.gnome.Showtime
+          - org.gnome.TextEditor
+          - org.libreoffice.LibreOffice
+          - page.tesk.Refine
+          - org.gnome.Papers
+          - org.gnome.Firmware
+          - com.github.Matoking.protontricks
+          - com.github.jeromerobert.pdfarranger
+          - com.heroicgameslauncher.hgl
+          - com.ranfdev.DistroShelf
+          - com.spotify.Client
+          - com.stremio.Stremio
+          - com.usebottles.bottles
+          - com.valvesoftware.Steam
+          - com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+          - com.vysp3r.ProtonPlus
+          - dev.qwery.AddWater
+          - io.github.Foldex.AdwSteamGtk
+          - io.github.diegoivan.pdf_metadata_editor
+          - io.github.flattool.Warehouse
+          - md.obsidian.Obsidian
+          - org.gnome.Geary
+          - org.gnome.TextEditor
+          - org.gtk.Gtk3theme.adw-gtk3
+          - org.gtk.Gtk3theme.adw-gtk3-dark
+          - org.onlyoffice.desktopeditors
+          - org.telegram.desktop
+          - page.codeberg.libre_menu_editor.LibreMenuEditor
+          - page.tesk.Refine

@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      cleanup: true # clean up added repos after module is done
+      nonfree: negativo17
+      copr:
+        - atim/starship
+        - ublue-os/staging
+    install:
+      packages:
+        - https://cdn.insynchq.com/builds/linux/3.9.6.60027/insync-3.9.6.60027-fc42.x86_64.rpm
+        - https://cdn.insynchq.com/builds/linux/3.9.5.60024/insync-nautilus-3.9.5.60024-1.noarch.rpm
+        - starship
+        - tailscale
+        - gnome-shell-extension-tailscale-gnome-qs
+        - java-21-openjdk
+        - steam-devices
+        - papirus-icon-theme
+        - uld
+        - intel-undervolt
+    remove:
+      auto-remove: true
+      packages:
+        - firefox
+        - firefox-langpacks
+        - virtualbox-guest-additions
+        - gnome-tour

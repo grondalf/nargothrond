@@ -3,41 +3,48 @@
 # image will be published to ghcr.io/<user>/<name>
 name: nargothrond
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: This is my personal OS image with nvidia drivers.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 41 # latest is also supported if you want new updates ASAP
+image-version: 42 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  - type: script
+    scripts:
+      - nvidia/nvidia-setup.sh
+
+  - from-file: /pkgs/files.yml
+
   - type: files
     files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+      - source: system/dev/starship-profile
+        destination: /etc/profile.d/
 
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-    install:
-      - micro
-      - starship
-    remove:
-      # example: removing firefox (in favor of the flatpak)
-      # "firefox" is the main package, "firefox-langpacks" is a dependency
-      - firefox
-      - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+  - from-file: /pkgs/rpms.yml
 
-  - type: default-flatpaks
-    configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
-      - scope: user # Also add Flathub user repo, but no user packages
+  - from-file: /pkgs/flatpaks.yml
 
+  - type: gschema-overrides
+    include:
+      - zz1-nimbus-core.gschema.override
+      - zz2-nimbus-dev.gschema.override
+
+  - type: systemd
+    system:
+      enabled:
+        - bootc-fetch-apply-updates.timer
+        - tailscaled.service
+      disabled:
+        - NetworkManager-wait-online.service
+        - rpm-ostreed-automatic.timer
+
+  - from-file: /pkgs/autofirma.yml
+
+  - type: script
+    scripts:
+      - common/disableRepos.sh
+          
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
-
