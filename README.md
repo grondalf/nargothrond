@@ -1,66 +1,21 @@
 # 🏰 Nargothrond OS &nbsp; [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
-Nargothrond OS is a personal immutable atomic Fedora image designed for reliability, reproducibility, and minimal maintenance overhead. It is crafted using [BlueBuild](https://blue-build.org/how-to/setup/) with some adjustments taken from [franute's Nimbus-OS](https://github.com/franute/nimbus-os).
+Nargothrond OS is an immutable atomic Fedora image designed for reliability, reproducibility, and minimal maintenance overhead. It is mainly crafted solely **for personal use** using [BlueBuild](https://blue-build.org/how-to/setup/) with some adjustments taken from [franute's Nimbus-OS](https://github.com/franute/nimbus-os).
 
 ## Software Changes:
 
-The following `rpm` packages were added to the base image:
-- Propietary NVIDIA Drivers.
-- `starship` - for a good-looking prompt.
-- `fastfetch` - looks nice to show off.
-- `insync` & `insync-nautilus`
-- `steam-devices` - for proper gamepad support.
-- `uld` - support for Samsung's printers.
-- `papirus-icon-theme` - a nice-looking icon set.
-- `tailscale` - Private Wireguard VPN
-- `java-21-openjdk` - required dependency for Autofirma
-- [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx) - for signing digitally documents using Spanish ID cards.
-
-The following ones are removed:
-- `virtualbox-guest-additions`
-- `firefox` & `firefox-langpacks`
-- `gnome-tour`
-
-Some default `flatpaks` are included:
-
-- Firefox
-- Flatseal
-- Refine
-- Papers
-- Firmware
-- Extension Manager
-- Fragments
-- Impression
-- Gnome Geary
-- Gnome Calculator
-- Gnome Calendar
-- Gnome Characters
-- Gnome Contacts
-- Gnome Text Editor
-- OnlyOffice
-- Stremio
-- Spotify
-- Steam
-- Protontricks
-- Heroic Games Launcher
-- Proton GE
-- AddWater
-- AdwSteamGtk
-- Telegram
-- Adw-gtk3 & Adw-gtk3-dark
+The image comes with NVIDIA propietary drivers and [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx) pre-installed. Further changes were made buy adding and removing several [rpm packages](recipes/pkgs/rpms.yml) and [flatpaks](recipes/pkgs/flatpaks.yml).
 
 ## System changes
 
 The `rpm-ostreed-automatic.service` service is disabled in favour of `bootc-fetch-apply-updates.service`.
 An override has been set for the latter to avoid automatic reboots.
 
-[QMK](https://qmk.fm/) udev file is added to allow keyboard customisations.
-
 ### Gnome Defaults
 - Automatic Timezone Enabled
 - Default fonts settings changed:
   - Font antialiasing enabled.
-  - Font hinting set to *fullt*.
+  - Font hinting set to *full*.
 - Numlock on keyboard enabled by default.
 - Natural scroll enabled by default for mice.
 - Automatically remove old temp and trash files.
