@@ -2,7 +2,7 @@
 
 [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
-[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is a steadfast and immutable realm forged from the mystical craft of Fedora atomic images, wrought for enduring reliability, steadfast reproducibility, and the ease of minimal tending. Born from [BlueBuild's](https://blue-build.org/how-to/setup/) powerful smithing and improved by the wisdom of [franute's Nimbus-OS](https://github.com/franute/nimbus-os), its core lies sealed, updates passed as gracious gifts in a single, resolute pulse, granting the power to rise anew or roll back the ages as destiny demands. Thus shall it withstand dragonfire and shadow, a bulwark of seamless strength and security in the ever-turning wheel of dependency hell. 
+[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable Fedora atomic image, wrought for enduring reliability, steadfast reproducibility, and the ease of minimal tending. Born from [BlueBuild's](https://blue-build.org/how-to/setup/) powerful smithing and improved by the wisdom of [franute's Nimbus-OS](https://github.com/franute/nimbus-os), its core lies sealed, updates passed as gracious gifts in a single, resolute pulse, granting the power to rise anew or roll back the ages as destiny demands. Thus shall it withstand dragonfire and shadow, a bulwark of seamless strength and security in the ever-turning wheel of dependency hell. 
 
 ## Software Changes:
 
