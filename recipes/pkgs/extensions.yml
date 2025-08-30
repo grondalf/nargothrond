@@ -10,8 +10,8 @@ install:
   - ddterm
   - Gnome 4x UI Improvements
   - GNOME Fuzzy App Search
-  - GSConnect
-  - IdeaPad Controls
+  - 1319 # GSConnect
+  - 8007 # IdeaPad Controls
   - Night Theme Switcher
   - Removable Drive Menu
   - Blur my Shell
@@ -20,6 +20,5 @@ install:
   - Tiling Assistant
   - Tailscale QS
 uninstall:
-  - Background Logo
 
 
