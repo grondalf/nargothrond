@@ -1,5 +1,6 @@
-![Nargothrond Logo](/files/assets/logo.png)
-<img src="/files/assets/logo.png" alt="drawing" width="200"/>
+<div style="text-align: center;">
+  <img src="/files/assets/logo.png" alt="Logo" width="400" height="400">
+</div>
 
 # 🏰 [Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS &nbsp; [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
