@@ -1,4 +1,4 @@
-![Logo](/files/assets/logo-big.png)
+![Logo](/files/assets/logo-wide.png)
 
 # 🏰 [Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS &nbsp; [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
