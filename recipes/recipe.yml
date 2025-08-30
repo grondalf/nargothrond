@@ -37,7 +37,7 @@ modules:
       enabled:
         - bootc-fetch-apply-updates.timer
         - tailscaled.service
-        - intel-unervolt.service
+        - intel-undervolt.service
       disabled:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
