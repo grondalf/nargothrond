@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+# Careful: Extension names are case-sensitive!
+
+type: gnome-extensions
+install:
+  - App Hider
+  - Caffeine
+  - Compiz windows effect
+  - Coverflow Alt-Tab
+  - ddterm
+  - GNOME 4x UI Improvements
+  - GNOME Fuzzy App Search
+  - GSConnect
+  - IdeaPad Controls
+  - Night Theme Switcher
+  - Removable Drive Menu
+  - Blur my Shell
+  - AppIndicator and KStatusNotifierItem Support
+  - GSConnect
+  - Tiling Assistant
+  - Tailscale QS
+uninstall:
+  - Background Logo
+
+

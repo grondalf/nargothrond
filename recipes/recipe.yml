@@ -24,8 +24,8 @@ modules:
         destination: /etc/profile.d/
 
   - from-file: pkgs/rpms.yml
-
   - from-file: pkgs/flatpaks.yml
+  - from-file: pkgs/extensions.yml
 
   - type: gschema-overrides
     include:

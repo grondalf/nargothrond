@@ -7,19 +7,19 @@ modules:
       nonfree: negativo17
       copr:
         - atim/starship
-        - ublue-os/staging
+        - kylegospo/LatencyFleX 
     install:
       packages:
         - https://cdn.insynchq.com/builds/linux/3.9.6.60027/insync-3.9.6.60027-fc42.x86_64.rpm
         - https://cdn.insynchq.com/builds/linux/3.9.5.60024/insync-nautilus-3.9.5.60024-1.noarch.rpm
         - starship
         - tailscale
-        - gnome-shell-extension-tailscale-gnome-qs
         - java-21-openjdk
         - steam-devices
         - papirus-icon-theme
         - uld
         - intel-undervolt
+        - latencyflex-vulkan-layer
     remove:
       auto-remove: true
       packages:
@@ -27,3 +27,4 @@ modules:
         - firefox-langpacks
         - virtualbox-guest-additions
         - gnome-tour
+        - gnome-shell-extension-background-logo
