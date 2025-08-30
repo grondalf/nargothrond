@@ -17,7 +17,6 @@ nimbus-tailscale-set-operator:
     
 # Enables undervolting:
 nimbus-undervolt-services-setup:
-#!/usr/bin/env bash
-    echo "Enabling undervolting"
+    #!/usr/bin/env bash
     systemctl enable intel-undervolt
-    echo "Configure undervolting by editing /etc/intel-undervolt.conf. Apply it by typing sudo intel-undervolt apply"
+    sudo intel-undervolt apply
