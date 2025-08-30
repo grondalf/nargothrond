@@ -7,7 +7,8 @@ modules:
       nonfree: negativo17
       copr:
         - atim/starship
-        - kylegospo/LatencyFleX 
+        - kylegospo/LatencyFleX
+        - jackgreiner/lsfg-vk-git
     install:
       packages:
         - https://cdn.insynchq.com/builds/linux/3.9.6.60027/insync-3.9.6.60027-fc42.x86_64.rpm
@@ -20,6 +21,7 @@ modules:
         - uld
         - intel-undervolt
         - latencyflex-vulkan-layer
+        - lsfg-vk
     remove:
       auto-remove: true
       packages:

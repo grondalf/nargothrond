@@ -17,7 +17,6 @@ modules:
       - nvidia/nvidia-setup.sh
 
   - from-file: pkgs/files.yml
-
   - type: files
     files:
       - source: system/dev/starship-profile

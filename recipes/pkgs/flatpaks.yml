@@ -13,6 +13,7 @@ modules:
         install:
           - org.gtk.Gtk3theme.adw-gtk3
           - org.gtk.Gtk3theme.adw-gtk3-dark
+          - it.mijorus.gearlever
           - org.mozilla.firefox
           - com.github.tchx84.Flatseal
           - com.mattjakeman.ExtensionManager
@@ -25,9 +26,8 @@ modules:
           - org.gnome.Logs
           - org.gnome.Loupe
           - org.gnome.SimpleScan
-          - org.gnome.Showtime
+          - io.github.celluloid_player.Celluloid
           - org.gnome.TextEditor
-          - org.libreoffice.LibreOffice
           - page.tesk.Refine
           - org.gnome.Papers
           - org.gnome.Firmware
@@ -54,3 +54,12 @@ modules:
           - org.telegram.desktop
           - page.codeberg.libre_menu_editor.LibreMenuEditor
           - page.tesk.Refine
+          - fm.reaper.Reaper
+          - com.calibre_ebook.calibre
+          - io.bassi.Amberol
+          - be.alexandervanhee.gradia
+          - org.nickvision.tubeconverter
+          - com.jetbrains.PyCharm-Professional
+          - org.rncbc.qpwgraph
+          - org.bleachbit.BleachBit
+          - app.drey.EarTag
