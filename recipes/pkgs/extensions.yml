@@ -1,5 +1,4 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
-# Careful: Extension names are case-sensitive!
 
 type: gnome-extensions
 install:
@@ -10,8 +9,8 @@ install:
   - ddterm
   - Gnome 4x UI Improvements
   - GNOME Fuzzy App Search
-  - 1319 # GSConnect
-  - 8007 # IdeaPad Controls
+  - 1319
+  - 8007
   - Night Theme Switcher
   - Removable Drive Menu
   - Blur my Shell
@@ -19,6 +18,5 @@ install:
   - GSConnect
   - Tiling Assistant
   - Tailscale QS
-uninstall:
 
 
