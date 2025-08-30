@@ -9,5 +9,7 @@ modules:
         destination: /etc/systemd/system/bootc-fetch-apply-updates.timer.d/
       - source: system/kargs
         destination: /usr/lib/bootc/kargs.d/
+      - source: system/bin
+        destination: /usr/bin/
 
   - type: justfiles
