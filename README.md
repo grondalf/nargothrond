@@ -1,8 +1,10 @@
-![Nargothrond Logo](/files/assets/logo.png)
-
 # 🏰 [Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS &nbsp; [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
-Nargothrond OS is an immutable atomic Fedora image designed for reliability, reproducibility, and minimal maintenance overhead. It is mainly crafted solely **for personal use** using [BlueBuild](https://blue-build.org/how-to/setup/) and some adjustments taken from [franute's Nimbus-OS](https://github.com/franute/nimbus-os).
+<img src="/files/assets/logo.png" alt="Logo" style="float: left; width: 100px; margin-right: 15px;">
+<p>
+Nargothrond OS is an immutable atomic Fedora image designed for reliability, reproducibility, and minimal maintenance overhead. It is mainly crafted solely **for personal use** using [BlueBuild](https://blue-build.org/how-to/setup/) and some         adjustments taken from [franute's Nimbus-OS](https://github.com/franute/nimbus-os).
+</p>
+<div style="clear: both;"></div>
 
 ## Software Changes:
 
