@@ -6,7 +6,7 @@
 
 ## Software Changes:
 
-The image comes with the latest NVIDIA propietary drivers compatible with the [Pascal](https://nvidia.custhelp.com/app/answers/detail/a_id/5678/~/list-of-maxwell%2C-pascal-and-volta-series-geforce-gpus) GPU architecture and [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx) pre-installed. Further changes were made by adding and removing the following [rpm packages](recipes/pkgs/rpms.yml) and [flatpaks](recipes/pkgs/flatpaks.yml).
+The image comes with the latest NVIDIA propietary drivers compatible with [Pascal](https://nvidia.custhelp.com/app/answers/detail/a_id/5678/~/list-of-maxwell%2C-pascal-and-volta-series-geforce-gpus) GPUs and [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx) pre-installed. Further changes were made by adding and removing the following [rpm packages](recipes/pkgs/rpms.yml) and [flatpaks](recipes/pkgs/flatpaks.yml).
 
 ## System changes
 
