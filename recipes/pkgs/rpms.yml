@@ -11,8 +11,6 @@ modules:
         - jackgreiner/lsfg-vk-git
     install:
       packages:
-        - https://cdn.insynchq.com/builds/linux/3.9.6.60027/insync-3.9.6.60027-fc42.x86_64.rpm
-        - https://cdn.insynchq.com/builds/linux/3.9.5.60024/insync-nautilus-3.9.5.60024-1.noarch.rpm
         - starship
         - tailscale
         - java-21-openjdk
