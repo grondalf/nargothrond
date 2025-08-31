@@ -2,7 +2,7 @@
 
 [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
-[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable Fedora atomic image, based on [BlueBuild](https://blue-build.org/how-to/setup/) made for personal use. 
+[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable Fedora atomic image based on [BlueBuild](https://blue-build.org/how-to/setup/) and [franute's Nimbus-OS](https://github.com/franute/nimbus-os). It is made solely for personal use. 
 
 ## Software Changes:
 
@@ -60,7 +60,3 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/grondalf/nargothrond
 ```
-
-## Aknowledgements
-
-Some scripts and tweaks were taken directly from [franute's Nimbus-OS](https://github.com/franute/nimbus-os) repositories.
