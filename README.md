@@ -2,11 +2,11 @@
 
 [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
-[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable Fedora atomic image, wrought for enduring reliability, steadfast reproducibility, and the ease of minimal tending. Born from [BlueBuild's](https://blue-build.org/how-to/setup/) powerful smithing and improved by the wisdom of [franute's Nimbus-OS](https://github.com/franute/nimbus-os), its core lies sealed, updates passed as gracious gifts in a single, resolute pulse, granting the power to rise anew or roll back the ages as destiny demands. Thus shall it withstand dragonfire and shadow, a bulwark of seamless strength and security in the ever-turning wheel of dependency hell. 
+[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable Fedora atomic image, based on [BlueBuild](https://blue-build.org/how-to/setup/) made for personal use. 
 
 ## Software Changes:
 
-The image comes with NVIDIA propietary drivers and [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx) pre-installed. Further changes were made buy adding and removing several [rpm packages](recipes/pkgs/rpms.yml) and [flatpaks](recipes/pkgs/flatpaks.yml).
+The image comes with the latest NVIDIA propietary drivers compatible with the Pascal architecture and [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx) pre-installed. Further changes were made buy adding and removing several [rpm packages](recipes/pkgs/rpms.yml) and [flatpaks](recipes/pkgs/flatpaks.yml).
 
 ## System changes
 
@@ -60,3 +60,7 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/grondalf/nargothrond
 ```
+
+## Aknowledgements
+
+Some scripts and tweaks were taken directly from [franute's Nimbus-OS](https://github.com/franute/nimbus-os) repositories.
