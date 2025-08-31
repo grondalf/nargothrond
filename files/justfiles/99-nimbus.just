@@ -1,7 +1,7 @@
 # vim: set ft=make :
 
 # Adds zstd encryption to kargs
-nimbus-fix-zstd-kargs:
+fix-zstd-kargs:
     #!/usr/bin/env bash
     if ! rpm-ostree kargs | grep zstd >> /dev/null; then
         echo "Adding kargs"
@@ -11,12 +11,12 @@ nimbus-fix-zstd-kargs:
     fi
 
 # Sets current user as operator for tailscale
-nimbus-tailscale-set-operator:
+tailscale-set-operator:
     #!/usr/bin/env bash
     sudo tailscale set --operator=$USER
     
 # Enables undervolting:
-nimbus-undervolt-apply:
+undervolt-apply:
     #!/usr/bin/env bash
     systemctl enable intel-undervolt.service
     sudo intel-undervolt apply

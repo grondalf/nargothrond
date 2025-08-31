@@ -7,7 +7,7 @@ description: This is my personal OS image with nvidia drivers.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
+image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -15,6 +15,9 @@ modules:
   - type: script
     scripts:
       - nvidia/nvidia-setup.sh
+      - insync/insync-setup.sh
+      - autofirma/autofirma-setup.sh
+      - repos/disable-repos.sh
 
   - from-file: pkgs/files.yml
   - type: files
@@ -40,11 +43,5 @@ modules:
       disabled:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
-
-  - from-file: pkgs/autofirma.yml
-
-  - type: script
-    scripts:
-      - repos/disable-repos.sh
-          
+        
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
