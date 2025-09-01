@@ -1,4 +1,4 @@
-![Logo](/files/assets/logo-wide.png)
+![Logo](/files/assets/logo.png)
 
 [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 

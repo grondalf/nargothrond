@@ -11,5 +11,7 @@ modules:
         destination: /usr/lib/bootc/kargs.d/
       - source: system/bin
         destination: /usr/bin/
+      - source: system/etc
+        destination: /etc/
 
   - type: justfiles

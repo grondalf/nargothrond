@@ -67,3 +67,13 @@ mkdir -p "${KARGS_D}"
 tee "${BLUEBUILD_NVIDIA_TOML}" <<EOF
 kargs = ["rd.driver.blacklist=nouveau", "modprobe.blacklist=nouveau", "nvidia-drm.modeset=1", "initcall_blacklist=simpledrm_platform_driver_init"]
 EOF
+
+# Fedora NVIDIA video memory preservation fix
+
+CONF_FILE="/etc/modprobe.d/nvidia-preserve-video-memory.conf"
+
+echo "options nvidia NVreg_PreserveVideoMemoryAllocations=1" | sudo tee $CONF_FILE
+
+systemctl enable nvidia-suspend.service
+systemctl enable nvidia-hibernate.service
+systemctl enable nvidia-resume.service
