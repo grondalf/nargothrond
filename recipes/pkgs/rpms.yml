@@ -15,7 +15,6 @@ modules:
         - tailscale
         - java-21-openjdk
         - steam-devices
-        - papirus-icon-theme
         - uld
         - intel-undervolt
         - latencyflex-vulkan-layer
