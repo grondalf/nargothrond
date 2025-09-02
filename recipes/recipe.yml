@@ -34,8 +34,8 @@ modules:
 
   - type: gschema-overrides
     include:
-      - settings.gschema.override
-      - extensions.gschema.override
+      - zz1.settings.gschema.override
+      - zz2.extensions.gschema.override
 
   - type: systemd
     system:
