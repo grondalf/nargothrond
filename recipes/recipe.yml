@@ -18,7 +18,6 @@ modules:
       - papirus/folders-setup.sh
       - papirus/theme-setup.sh
       - nvidia/nvidia-setup.sh
-      - insync/insync-setup.sh
       - autofirma/autofirma-setup.sh
       - repos/disable-repos.sh
 
