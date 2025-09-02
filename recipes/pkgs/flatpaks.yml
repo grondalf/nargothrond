@@ -39,7 +39,6 @@ modules:
           - com.stremio.Stremio
           - com.usebottles.bottles
           - com.valvesoftware.Steam
-          - com.valvesoftware.Steam.CompatibilityTool.Proton-GE
           - com.vysp3r.ProtonPlus
           - dev.qwery.AddWater
           - io.github.Foldex.AdwSteamGtk
@@ -48,8 +47,6 @@ modules:
           - md.obsidian.Obsidian
           - org.gnome.Geary
           - org.gnome.TextEditor
-          - org.gtk.Gtk3theme.adw-gtk3
-          - org.gtk.Gtk3theme.adw-gtk3-dark
           - org.onlyoffice.desktopeditors
           - org.telegram.desktop
           - io.github.fabrialberio.pinapp
@@ -57,7 +54,6 @@ modules:
           - fm.reaper.Reaper
           - com.calibre_ebook.calibre
           - io.bassi.Amberol
-          - be.alexandervanhee.gradia
           - org.nickvision.tubeconverter
           - com.jetbrains.PyCharm-Professional
           - org.rncbc.qpwgraph
