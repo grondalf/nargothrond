@@ -18,6 +18,7 @@ An override has been set for the latter to avoid automatic reboots.
 - Default fonts settings changed:
   - Font antialiasing enabled.
   - Font hinting set to *full*.
+  - Icon theme set to *Papirus*
 - Numlock on keyboard enabled by default.
 - Natural scroll enabled by default for mice.
 - Automatically remove old temp and trash files.
