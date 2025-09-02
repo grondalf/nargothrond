@@ -17,6 +17,7 @@ modules:
       - nvidia-install.sh
       - setup-papirus-icons.sh
       - setup-autofirma.sh
+      - remove-repos.sh
 
   - type: files
     files:
@@ -42,10 +43,5 @@ modules:
       disabled:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
-        
-  - type: script
-    scripts:
-        - remove-repos.sh
-        - remove-remnants.sh
         
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
