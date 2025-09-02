@@ -1,22 +1,19 @@
----
-# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
-
 type: gnome-extensions
 install:
-  - 5895    # App Hider
-  - 517     # Caffeine
-  - 3210    # Compiz windows effect
-  - 97      # Coverflow Alt-Tab
-  - 3780    # ddterm
-  - 4200    # Gnome 4x UI Improvements
-  - 3956    # GNOME Fuzzy App Search
-  - 1319    # GSConnect
-  - 8007    # Tailscale QS
-  - 5444    # Night Theme Switcher
-  - 7       # Removable Drive Menu
-  - 3193    # Blur my Shell
-  - 615     # AppIndicator and KStatusNotifierItem Support
-  - 3733    # Tiling Assistant
-  - 6139    # Tailscale QS
+  - "5895"    # App Hider
+  - "517"     # Caffeine
+  - "3210"    # Compiz windows effect
+  - "97"      # Coverflow Alt-Tab
+  - "3780"    # ddterm
+  - "4200"    # Gnome 4x UI Improvements
+  - "3956"    # GNOME Fuzzy App Search
+  - "1319"    # GSConnect
+  - "8007"    # Tailscale QS
+  - "5444"    # Night Theme Switcher
+  - "7"       # Removable Drive Menu
+  - "3193"    # Blur my Shell
+  - "615"     # AppIndicator and KStatusNotifierItem Support
+  - "3733"    # Tiling Assistant
+  - "6139"    # Tailscale QS
 uninstall:
-  - 889     # Background Logo (Fedora logo overlay extension)
+  - "889"     # Background Logo (Fedora logo overlay extension)
