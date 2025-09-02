@@ -14,7 +14,7 @@ image-version: latest # latest is also supported if you want new updates ASAP
 modules:
   - type: script
     scripts:
-      - setup-nvidia.sh
+      - nvidia-install.sh
       - setup-papirus-icons.sh
       - setup-autofirma.sh
 
