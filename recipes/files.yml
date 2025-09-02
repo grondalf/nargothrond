@@ -13,5 +13,7 @@ modules:
         destination: /usr/bin/
       - source: system/etc
         destination: /etc/
+      - source: system/dev/starship-profile
+        destination: /etc/profile.d/
 
   - type: justfiles

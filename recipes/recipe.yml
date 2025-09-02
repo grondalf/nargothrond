@@ -7,26 +7,19 @@ description: This is my personal OS image with propietary NVIDIA drivers.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: latest # latest is also supported if you want new updates ASAP
+image-version: 42 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  - from-file: files.yml
+  - from-file: dnf.yml
+  - from-file: default-flatpaks.yml
+  - from-file: gnome-extensions.yml
+  
   - type: script
     scripts:
-      - nvidia-install.sh
-      - setup-papirus-icons.sh
       - setup-autofirma.sh
-
-  - type: files
-    files:
-      - source: system/dev/starship-profile
-        destination: /etc/profile.d/
-
-  - from-file: pkgs/rpms.yml
-  - from-file: pkgs/flatpaks.yml
-  - from-file: pkgs/extensions.yml
-  - from-file: pkgs/files.yml
 
   - type: gschema-overrides
     include:
@@ -42,10 +35,5 @@ modules:
       disabled:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
-        
-  - type: script
-    scripts:
-        - remove-repos.sh
-        - remove-remnants.sh
-        
+              
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
