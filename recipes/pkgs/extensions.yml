@@ -17,5 +17,5 @@ install:
   - 615     # AppIndicator and KStatusNotifierItem Support
   - 3733    # Tiling Assistant
   - 6139    # Tailscale QS
-remove:
+uninstall:
   - 889     # Background Logo (Fedora logo overlay extension)
