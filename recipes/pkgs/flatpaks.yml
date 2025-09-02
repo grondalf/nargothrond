@@ -6,7 +6,7 @@ modules:
       - scope: user
         repo:
           title: Flathub (user)
-      - notify: true
+      - notify: false
         scope: system
         repo: 
           title: Flathub (system)
