@@ -77,3 +77,7 @@ echo "options nvidia NVreg_PreserveVideoMemoryAllocations=1" | sudo tee $CONF_FI
 systemctl enable nvidia-suspend.service
 systemctl enable nvidia-hibernate.service
 systemctl enable nvidia-resume.service
+
+# Driver persistence
+
+systemctl enable nvidia-persistenced.service

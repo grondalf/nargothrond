@@ -4,6 +4,7 @@ automatic-timezone=true
 [org.gnome.desktop.interface]
 font-antialiasing='rgba'
 font-hinting='full'
+icon-theme='Papirus'
 
 [org.gnome.desktop.peripherals.keyboard]
 numlock-state=true

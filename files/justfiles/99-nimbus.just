@@ -16,7 +16,7 @@ tailscale-set-operator:
     sudo tailscale set --operator=$USER
     
 # Enables undervolting:
-undervolt-apply:
+undervolt-enable:
     #!/usr/bin/env bash
     systemctl enable intel-undervolt.service
     sudo intel-undervolt apply

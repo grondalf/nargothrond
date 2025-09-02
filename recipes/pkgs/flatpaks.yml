@@ -26,7 +26,7 @@ modules:
           - org.gnome.Logs
           - org.gnome.Loupe
           - org.gnome.SimpleScan
-          - io.github.celluloid_player.Celluloid
+          - org.gnome.Showtime
           - org.gnome.TextEditor
           - page.tesk.Refine
           - org.gnome.Papers
@@ -52,7 +52,7 @@ modules:
           - org.gtk.Gtk3theme.adw-gtk3-dark
           - org.onlyoffice.desktopeditors
           - org.telegram.desktop
-          - page.codeberg.libre_menu_editor.LibreMenuEditor
+          - io.github.fabrialberio.pinapp
           - page.tesk.Refine
           - fm.reaper.Reaper
           - com.calibre_ebook.calibre

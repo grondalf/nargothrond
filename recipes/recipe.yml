@@ -14,6 +14,9 @@ image-version: latest # latest is also supported if you want new updates ASAP
 modules:
   - type: script
     scripts:
+      - papirus/icons-setup.sh
+      - papirus/folders-setup.sh
+      - papirus/theme-setup.sh
       - nvidia/nvidia-setup.sh
       - insync/insync-setup.sh
       - autofirma/autofirma-setup.sh
