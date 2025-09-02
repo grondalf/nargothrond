@@ -11,6 +11,7 @@ modules:
       nonfree: negativo17
       copr:
         - atim/starship
+        - lukenukem/asus-linux
         - kylegospo/LatencyFleX
         - jackgreiner/lsfg-vk-git
     install:
@@ -26,6 +27,7 @@ modules:
         - lsfg-vk
         - insync
         - insync-nautilus
+        - supergfxctl
     remove:
       auto-remove: true
       packages:

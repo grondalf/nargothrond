@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: nargothrond
 # description will be included in the image's metadata
-description: This is my personal OS image with nvidia drivers.
+description: This is my personal OS image with propietary NVIDIA drivers.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
@@ -14,14 +14,10 @@ image-version: latest # latest is also supported if you want new updates ASAP
 modules:
   - type: script
     scripts:
-      - papirus/icons-setup.sh
-      - papirus/folders-setup.sh
-      - papirus/theme-setup.sh
-      - nvidia/nvidia-setup.sh
-      - autofirma/autofirma-setup.sh
-      - repos/disable-repos.sh
+      - setup-nvidia.sh
+      - setup-papirus-icons.sh
+      - setup-autofirma.sh
 
-  - from-file: pkgs/files.yml
   - type: files
     files:
       - source: system/dev/starship-profile
@@ -30,6 +26,7 @@ modules:
   - from-file: pkgs/rpms.yml
   - from-file: pkgs/flatpaks.yml
   - from-file: pkgs/extensions.yml
+  - from-file: pkgs/files.yml
 
   - type: gschema-overrides
     include:
@@ -45,5 +42,10 @@ modules:
       disabled:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
+        
+  - type: script
+    scripts:
+        - remove-repos.sh
+        - remove-remnants.sh
         
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
