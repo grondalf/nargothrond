@@ -3,7 +3,7 @@
 modules:
   - type: dnf
     repos:
-      cleanup: false
+      cleanup: true
       keys:
         - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
       files:
@@ -14,6 +14,7 @@ modules:
         - kylegospo/LatencyFleX
         - jackgreiner/lsfg-vk-git
     install:
+      skip-unavailable: true
       packages:
         - starship
         - tailscale
