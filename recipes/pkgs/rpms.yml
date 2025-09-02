@@ -3,7 +3,11 @@
 modules:
   - type: dnf
     repos:
-      cleanup: true # clean up added repos after module is done
+      cleanup: true
+      keys:
+        - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
+      files:
+        - insync.repo
       nonfree: negativo17
       copr:
         - atim/starship
@@ -19,11 +23,11 @@ modules:
         - intel-undervolt
         - latencyflex-vulkan-layer
         - lsfg-vk
+        - insync
+        - insync-nautilus
     remove:
       auto-remove: true
       packages:
         - firefox
         - firefox-langpacks
-        - virtualbox-guest-additions
         - gnome-tour
-        - gnome-shell-extension-background-logo
