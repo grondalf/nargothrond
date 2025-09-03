@@ -14,7 +14,7 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 
 modules:
   - type: akmods
-    source: ghcr.io/franute/modules/akmods:nvidia-akmods
+    source: ghcr.io/grondalf/modules/akmods:nvidia-akmods
     nvidia-driver: nvidia
     
   - type: script
