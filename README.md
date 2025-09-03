@@ -10,18 +10,9 @@ The image comes with the latest NVIDIA propietary drivers compatible with [Pasca
 
 ## System changes
 
-The `rpm-ostreed-automatic.service` service is disabled in favour of `bootc-fetch-apply-updates.service`.
+- The `rpm-ostreed-automatic.service` service is disabled in favour of `bootc-fetch-apply-updates.service`.
 An override has been set for the latter to avoid automatic reboots.
-
-### Gnome Defaults
-- Automatic Timezone Enabled
-- Default fonts settings changed:
-  - Font antialiasing enabled.
-  - Font hinting set to *full*.
-  - Icon theme set to *Papirus*
-- Numlock on keyboard enabled by default.
-- Automatically remove old temp and trash files.
-- File-chooser to sort directories before files.
+- [GNOME Defaults](https://github.com/grondalf/nargothrond/blob/main/files/gschema-overrides/zz1.settings.gschema.override)
 
 ## Installation
 
