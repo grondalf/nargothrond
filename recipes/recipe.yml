@@ -13,6 +13,9 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 # you can include multiple instances of the same module
 
 modules:
+  - from-file: files.yml
+  - from-file: dnf.yml
+
   - type: akmods
     source: ghcr.io/grondalf/modules/akmods:nvidia-akmods
     nvidia-driver: nvidia
@@ -22,8 +25,6 @@ modules:
       - setup-autofirma.sh
       - remove-repos.sh
 
-  - from-file: files.yml
-  - from-file: dnf.yml
   - from-file: default-flatpaks.yml
   - from-file: gnome-extensions.yml
 
