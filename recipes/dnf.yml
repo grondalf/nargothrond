@@ -27,7 +27,6 @@ modules:
         - lsfg-vk
         - insync
         - insync-nautilus
-        - supergfxctl
         - papirus-icon-theme
     remove:
       auto-remove: true
