@@ -11,10 +11,14 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
+
 modules:
+  - type: akmods
+    source: ghcr.io/franute/modules/akmods:nvidia-akmods
+    nvidia-driver: nvidia
+    
   - type: script
     scripts:
-      - nvidia-setup.sh
       - setup-autofirma.sh
       - remove-repos.sh
 
