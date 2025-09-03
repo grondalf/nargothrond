@@ -3,4 +3,3 @@
 modules:
   - type: akmods
     base: main
-    nvidia-driver: nvidia
