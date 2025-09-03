@@ -14,9 +14,9 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 
 modules:
   - type: akmods
-    source: ghcr.io/grondalf/modules/akmods:nvidia-akmods
+    base: main
     nvidia-driver: nvidia
-
+    
   - from-file: files.yml
   - from-file: dnf.yml
     
