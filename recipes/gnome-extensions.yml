@@ -2,7 +2,7 @@
 
 type: gnome-extensions
 install:
-  - App Hider
+  - AppIndicator and KStatusNotifierItem Support
   - Caffeine
   - Compiz windows effect
   - Coverflow Alt-Tab
@@ -14,7 +14,10 @@ install:
   - Night Theme Switcher
   - Removable Drive Menu
   - Blur my Shell
-  - AppIndicator and KStatusNotifierItem Support
   - GSConnect
   - Tiling Assistant
   - Tailscale QS
+  - Status Area Horizontal Spacing
+  - Privacy Quick Settings
+  - Alphabetical App Grid
+  - Battery Health Charging

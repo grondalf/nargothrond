@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
+modules:
+  - type: systemd
+    system:
+      enabled:
+        - bootc-fetch-apply-updates.timer
+        - tailscaled.service
+        - intel-undervolt.service
+        - preload.service
+      disabled:
+        - NetworkManager-wait-online.service
+        - rpm-ostreed-automatic.timer

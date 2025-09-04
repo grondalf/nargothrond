@@ -4,29 +4,33 @@ modules:
   - type: dnf
     repos:
       cleanup: true
-      keys:
-        - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
-      files:
-        - insync.repo
       nonfree: negativo17
       copr:
         - atim/starship
         - kylegospo/LatencyFleX
         - jackgreiner/lsfg-vk-git
+        - atim/preload
+        - abn/throttled
+      keys:
+        - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
+      files:
+        - insync.repo
+        
     install:
       skip-unavailable: true
       packages:
+        - throttled
         - starship
         - tailscale
         - java-21-openjdk
         - steam-devices
         - uld
-        - intel-undervolt
         - latencyflex-vulkan-layer
         - lsfg-vk
         - insync
         - insync-nautilus
-        - papirus-icon-theme
+        - preload
+                
     remove:
       auto-remove: true
       packages:
