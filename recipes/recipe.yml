@@ -12,12 +12,12 @@ image-version: 42
 
 modules:
   - from-file: akmods.yml
+  - from-file: script.yml
   - from-file: files.yml
   - from-file: dnf.yml
   - from-file: script.yml
   - from-file: default-flatpaks.yml
   - from-file: gnome-extensions.yml
   - from-file: gschema-overrides.yml
-  - from-file: script.yml
 
   - type: signing # Necessary for signing files
