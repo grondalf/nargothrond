@@ -12,7 +12,7 @@ modules:
         - atim/preload
         - abn/throttled
       keys:
-        - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
+        - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key   # insync keys
       files:
         - insync.repo
         
@@ -34,6 +34,7 @@ modules:
     remove:
       auto-remove: true
       packages:
+        - thermald
         - firefox
         - firefox-langpacks
         - gnome-tour
