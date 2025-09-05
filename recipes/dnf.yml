@@ -30,6 +30,7 @@ modules:
         - insync
         - insync-nautilus
         - preload
+        - gamemode
                 
     remove:
       auto-remove: true

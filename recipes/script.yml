@@ -4,4 +4,5 @@ modules:
   - type: script
     scripts:
       - setup-autofirma.sh
+      - setup-gamemode.sh
       - remove-repos.sh
