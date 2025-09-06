@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
+modules:
+  - type: akmods
+    source: ghcr.io/grondalf/modules/akmods:nvidia-akmods
+    nvidia-driver: nvidia

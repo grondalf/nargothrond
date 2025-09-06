@@ -1,46 +1,23 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
+
 name: nargothrond
-# description will be included in the image's metadata
-description: This is my personal OS image with propietary NVIDIA drivers.
+description: This is my personal OS image with proprietary NVIDIA drivers.
 
-# the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
+image-version: 42
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
+# Module configuration, executed in order. Multiple instances of the same module is permitted.
 
 modules:
-  - type: akmods
-    source: ghcr.io/franute/modules/akmods:nvidia-akmods
-    nvidia-driver: nvidia
-    
+  - from-file: akmods.yml
+  - from-file: script.yml
   - from-file: files.yml
   - from-file: dnf.yml
-    
-  - type: script
-    scripts:
-      - setup-autofirma.sh
-      - remove-repos.sh
-
+  - from-file: script.yml
   - from-file: default-flatpaks.yml
   - from-file: gnome-extensions.yml
+  - from-file: gschema-overrides.yml
 
-  - type: gschema-overrides
-    include:
-      - zz1.settings.gschema.override
-      - zz2.extensions.gschema.override
-
-  - type: systemd
-    system:
-      enabled:
-        - bootc-fetch-apply-updates.timer
-        - tailscaled.service
-        - intel-undervolt.service
-      disabled:
-        - NetworkManager-wait-online.service
-        - rpm-ostreed-automatic.timer
-
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing # Necessary for signing files
