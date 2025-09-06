@@ -14,7 +14,7 @@ modules:
           - org.gtk.Gtk3theme.adw-gtk3
           - org.gtk.Gtk3theme.adw-gtk3-dark
           - it.mijorus.gearlever
-          - org.mozilla.firefox
+          - io.gitlab.librewolf-community
           - com.github.tchx84.Flatseal
           - com.mattjakeman.ExtensionManager
           - de.haeckerfelix.Fragments
@@ -28,7 +28,6 @@ modules:
           - org.gnome.SimpleScan
           - org.gnome.Showtime
           - org.gnome.TextEditor
-          - page.tesk.Refine
           - org.gnome.Papers
           - org.gnome.Firmware
           - com.github.Matoking.protontricks
@@ -55,7 +54,6 @@ modules:
           - com.calibre_ebook.calibre
           - io.bassi.Amberol
           - org.nickvision.tubeconverter
-          - com.jetbrains.PyCharm-Professional
           - org.rncbc.qpwgraph
           - org.bleachbit.BleachBit
           - app.drey.EarTag
