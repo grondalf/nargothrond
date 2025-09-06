@@ -12,7 +12,6 @@ image-version: 42
 
 modules:
   - from-file: akmods.yml
-  - from-file: script.yml
   - from-file: files.yml
   - from-file: dnf.yml
   - from-file: script.yml
