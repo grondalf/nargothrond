@@ -1,24 +1,11 @@
 #!/usr/bin/env bash
-
-# Tell this script to exit if there are any errors.
 set -oue pipefail
 
-# Your code goes here.
-echo "Downloading dependencies"
 curl -O https://firmaelectronica.gob.es/content/dam/firmaelectronica/descargas-software/autofirma19/Autofirma_Linux_Fedora.zip
+
 unzip Autofirma_Linux_Fedora.zip
+dnf5 install -y ./autofirma-*.noarch_FEDORA.rpm
 
-if md5sum -c setup-autofirma.md5 > /dev/null; then
-    echo "MD5Sum validated, installing autofirma."
-    rpm --import ./gpg_sgad_publickey.asc
-    dnf5 install -y ./autofirma-*.noarch_FEDORA.rpm
-else
-    echo "Incorrect MD5Sum"
-    exit 1
-fi
-
-echo "Deleting downloaded files"
-rm setup-autofirma.md5
 rm Autofirma_Linux_Fedora.zip
 rm gpg_sgad_publickey.asc
 rm autofirma-*.noarch_FEDORA.rpm
