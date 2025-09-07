@@ -11,6 +11,7 @@ modules:
         - jackgreiner/lsfg-vk-git
         - atim/preload
         - abn/throttled
+        - pesader/hblock
       keys:
         - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key   # insync keys
       files:
@@ -31,6 +32,7 @@ modules:
         - insync-nautilus
         - preload
         - gamemode
+        - hblock
                 
     remove:
       auto-remove: true
