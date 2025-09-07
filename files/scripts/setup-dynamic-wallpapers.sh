@@ -1,0 +1,1 @@
+curl -s https://github.com/grondalf/dynamic-gnome-wallpapers/blob/main/install.sh | sudo bash -s Lakeside-2 --global
