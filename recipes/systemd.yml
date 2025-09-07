@@ -8,6 +8,7 @@ modules:
         - tailscaled.service
         - throttled.service
         - preload.service
+        - hblock.service
       disabled:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
