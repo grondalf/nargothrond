@@ -5,4 +5,5 @@ modules:
     scripts:
       - setup-autofirma.sh
       - setup-gamemode.sh
+      - setup-dynamic-wallpapers.sh
       - remove-repos.sh
