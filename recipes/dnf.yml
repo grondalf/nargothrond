@@ -41,3 +41,5 @@ modules:
         - firefox
         - firefox-langpacks
         - gnome-tour
+        - amd-gpu-firmware
+        - amd-ucode-firmware

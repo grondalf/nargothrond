@@ -6,7 +6,7 @@ name: nargothrond
 description: This is my personal OS image with proprietary NVIDIA drivers.
 
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42
+image-version: 42  # Or "latest"
 
 # Module configuration, executed in order. Multiple instances of the same module is permitted.
 
