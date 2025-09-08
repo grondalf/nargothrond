@@ -57,3 +57,4 @@ modules:
           - org.rncbc.qpwgraph
           - org.bleachbit.BleachBit
           - app.drey.EarTag
+          - org.gnome.DejaDup

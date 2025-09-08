@@ -4,5 +4,7 @@ modules:
   - type: script
     scripts:
       - setup-autofirma.sh
+      - setup-papirus.sh
       - setup-gamemode.sh
+      - setup-dynamic-wallpapers.sh
       - remove-repos.sh
