@@ -9,8 +9,7 @@ install:
   - ddterm
   - Gnome 4x UI Improvements
   - GNOME Fuzzy App Search
-  - 1319
-  - 8007
+  - GSConnect
   - Night Theme Switcher
   - Removable Drive Menu
   - Blur my Shell
@@ -21,4 +20,4 @@ install:
   - Privacy Quick Settings
   - Alphabetical App Grid
   - Battery Health Charging
-  - 7831  # Blocker
+  - Blocker
