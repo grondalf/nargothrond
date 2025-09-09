@@ -18,8 +18,16 @@ This image comes with the following changes:
 * The `rpm-ostreed-automatic.service` service is disabled in favour of `bootc-fetch-apply-updates.service`.
 An override has been set for the latter to avoid automatic reboots.
 
+<<<<<<< HEAD
 * Undervolt support via [throttled](https://github.com/throttled/throttled)
    
+=======
+* The default kernel shipped by Fedora is replaced with [CachyOS' one](https://github.com/CachyOS/copr-linux-cachyos). The following addons that supplement the kernel packages are included too:
+    - [CachyOS-Settings](https://github.com/CachyOS/CachyOS-Settings): such as modprobe configs and udev rules.
+    - [scx-scheds](https://github.com/sched-ext/scx): sched-ext schedulers.
+    - [scx-manager](https://github.com/CachyOS/scx-manager/): simple GUI for managing sched-ext schedulers via scx_loader.
+    
+>>>>>>> 06aef28 (Updated README with the kernel changes.)
 * Some [GNOME Defaults](https://github.com/grondalf/nargothrond/blob/main/files/gschema-overrides/zz1.settings.gschema.override) are tweaked for a better overall desktop experience.
 
 * Some default pre-installed [rpm packages](recipes/pkgs/rpms.yml) and [flatpaks](recipes/pkgs/flatpaks.yml) have been removed or added.
