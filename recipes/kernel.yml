@@ -16,6 +16,7 @@ modules:
         - kernel-modules-core
         - kernel-modules-extra
     install:
+      allow-erasing: true
       packages:
         - kernel-cachyos
         - cachyos-settings
