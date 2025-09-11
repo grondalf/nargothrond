@@ -15,12 +15,12 @@ modules:
         - kernel-modules
         - kernel-modules-core
         - kernel-modules-extra
-        - cachyos-settings
-        - scx-scheds
-        - scx-manager
     install:
       packages:
         - kernel-cachyos
+        - cachyos-settings
+        - scx-scheds
+        - scx-manager
   - type: script
     scripts:
       - setup-cachyos-kernel.sh
