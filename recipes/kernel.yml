@@ -17,6 +17,9 @@ modules:
         - kernel-modules-extra
         - kernel-tools
         - kernel-tools-libs
+  - type: script
+    scripts:
+      - remove-default-kernel-modules.sh
     install:
       allow-erasing: true
       packages:
