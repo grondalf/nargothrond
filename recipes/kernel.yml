@@ -2,11 +2,6 @@
 
 modules:
   - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        - bieszczaders/kernel-cachyos
-        - bieszczaders/kernel-cachyos-addons  
     remove:
       auto-remove: true
       packages:
@@ -20,6 +15,12 @@ modules:
   - type: script
     scripts:
       - remove-default-kernel-modules.sh
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - bieszczaders/kernel-cachyos
+        - bieszczaders/kernel-cachyos-addons  
     install:
       allow-erasing: true
       packages:
