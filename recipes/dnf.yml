@@ -43,3 +43,10 @@ modules:
         - gnome-tour
         - amd-gpu-firmware
         - amd-ucode-firmware
+        - gnome-shell-extension-apps-menu
+        - gnome-shell-extension-launch-new-instance
+        - gnome-shell-extension-places-menu
+        - gnome-shell-extension-window-list
+        - gnome-shell-extension-background-logo
+        - gnome-shell-extension-supergfxctl-gex
+

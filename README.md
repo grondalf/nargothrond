@@ -2,10 +2,7 @@
 
 [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
-[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on Fedora Silverblue provided by [Universal Blue](https://github.com/orgs/ublue-os/packages), built with [BlueBuild](https://blue-build.org/how-to/setup/) template using some useful tweaks from [franute's Nimbus-OS](https://github.com/franute/nimbus-os). It is made solely for personal use.
-
-## Disclaimer
-The image provided in this repo is made solely for personal use and hardware. Due to my limited knowledge on the subject, please feel free to fork, check and edit the code before using it in our own machine. Any contributions or criticisms are welcome.
+[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on Fedora Silverblue provided by [Universal Blue](https://github.com/orgs/ublue-os/packages), built with [BlueBuild](https://blue-build.org/how-to/setup/) template using some useful tweaks from [franute's Nimbus-OS](https://github.com/franute/nimbus-os). This distro image is **intended for personal use and playground purposes only**.
 
 ## System changes
 
