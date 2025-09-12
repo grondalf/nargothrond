@@ -20,4 +20,4 @@ install:
   - 4269  # Alphabetical App Grid
   - 5724  # Battery Health Charging
   - 7831  # Blocker
-  - 5344  # supergfxctl-gex
+  - 7018  # GPU Supergfxctl Switch
