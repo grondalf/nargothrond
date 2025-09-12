@@ -19,7 +19,7 @@ An override has been set for the latter to avoid automatic reboots.
    
 * Some [GNOME Defaults](https://github.com/grondalf/nargothrond/blob/main/files/gschema-overrides/zz1.settings.gschema.override) are tweaked for a better overall desktop experience.
 
-* Some default pre-installed [rpm packages](recipes/pkgs/rpms.yml) and [flatpaks](recipes/pkgs/flatpaks.yml) have been removed or added.
+* Some default pre-installed [rpm packages](recipes/dnf.yml) and [flatpaks](recipes/default-flatpaks.yml) have been removed or added.
 
 ## Installation
 
