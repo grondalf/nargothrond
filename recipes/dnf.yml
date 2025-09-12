@@ -33,6 +33,7 @@ modules:
         - preload
         - gamemode
         - hblock
+        - android-tools
                 
     remove:
       auto-remove: true

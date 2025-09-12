@@ -6,5 +6,5 @@ modules:
       - setup-autofirma.sh
       - setup-papirus.sh
       - setup-gamemode.sh
-      - setup-dynamic-wallpapers.sh
+      - setup-android-udev-rules.sh
       - remove-repos.sh
