@@ -2,6 +2,7 @@
 
 modules:
   - type: akmods
-    base: fsync-ba
+    base: main
     source: ghcr.io/grondalf/modules/akmods:nvidia-akmods
-    nvidia-driver: nvidia
+    install:
+      - nvidia
