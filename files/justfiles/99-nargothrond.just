@@ -43,27 +43,9 @@ disable-extensions:
     #!/usr/bin/env bash
     gsettings set org.gnome.shell disable-user-extensions true
     
-# Install Dynamic Wallpapers
-setup-dynamic-wallpapers:
+# Enable eduroam support
+enable-eduroam:
     #!/usr/bin/env bash
-    themes=(
-        Lakeside
-        A_Certain_Magical_Index
-        Exodus
-        Minimal-Mojave
-        Mojave
-        MojaveV2
-        Big_Sur_Beach
-        Firewatch
-        Lakeside-2
-        Big_Sur
-        Fuji
-        Catalina
-    )
-
-    for theme in "${themes[@]}"; do
-        echo "Installing theme: $theme"
-        curl -s https://wallpapers.manishk.dev/install.sh | bash -s "$theme"
-    done
-
-    echo "All dynamic GNOME wallpapers from the repository have been installed."
+    curl -O "https://cat.eduroam.org/user/API.php?action=downloadInstaller&lang=en&profile=2011&device=linux&generatedfor=user&openroaming=0"
+    python eduroam-linux-*.py
+    rm eduroam-linux-*.py
