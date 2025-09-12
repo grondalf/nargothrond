@@ -2,7 +2,6 @@
 
 modules:
   - type: akmods
-    base: main
     source: ghcr.io/grondalf/modules/akmods:nvidia-akmods
     install:
       - nvidia
