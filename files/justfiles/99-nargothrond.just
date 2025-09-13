@@ -42,10 +42,3 @@ enable-extensions:
 disable-extensions:
     #!/usr/bin/env bash
     gsettings set org.gnome.shell disable-user-extensions true
-    
-# Enable eduroam support
-enable-eduroam:
-    #!/usr/bin/env bash
-    curl -O "https://cat.eduroam.org/user/API.php?action=downloadInstaller&lang=en&profile=2011&device=linux&generatedfor=user&openroaming=0"
-    python eduroam-linux-*.py
-    rm eduroam-linux-*.py
