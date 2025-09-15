@@ -34,6 +34,9 @@ modules:
         - gamemode
         - hblock
         - android-tools
+        - p7zip
+        - p7zip-plugins
+        - unrar
                 
     remove:
       auto-remove: true
@@ -50,4 +53,3 @@ modules:
         - gnome-shell-extension-window-list
         - gnome-shell-extension-background-logo
         - gnome-shell-extension-supergfxctl-gex
-
