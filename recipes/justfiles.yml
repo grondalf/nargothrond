@@ -5,4 +5,3 @@
     validate: true
     include:
       - 99-nargothrond.just
-      - supergfxctl.just
