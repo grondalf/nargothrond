@@ -31,4 +31,4 @@ blur=false
 [org.gnome.shell.extensions.nightthemeswitcher.commands]
 enabled=true
 sunrise="flatpak override --env=ICON_THEME=\"Papirus-Light\" && gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-sunset "flatpak override --env=ICON_THEME=\"Papirus-Dark\" && gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' &&  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+sunset="flatpak override --env=ICON_THEME=\"Papirus-Dark\" && gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' &&  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
