@@ -2,7 +2,7 @@
 
 [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
-[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on Fedora Silverblue provided by [Universal Blue](https://github.com/orgs/ublue-os/packages), built with [BlueBuild](https://blue-build.org/how-to/setup/) template using some useful tweaks from [franute's Nimbus-OS](https://github.com/franute/nimbus-os). This distro image is **intended for personal use and playground purposes only**.
+[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on [Universal Blue](https://github.com/orgs/ublue-os/packages)'s version of Fedora Silverblue and built using a [BlueBuild](https://blue-build.org/how-to/setup/) template. It is **intended solely for personal use and playground purposes only**.
 
 ## System changes
 
@@ -17,7 +17,7 @@ An override has been set for the latter to avoid automatic reboots.
 
 * Undervolt support with [throttled](https://github.com/throttled/throttled)
    
-* Some [GNOME Defaults](https://github.com/grondalf/nargothrond/blob/main/files/gschema-overrides/zz1.settings.gschema.override) are tweaked for a better overall desktop experience.
+* A selection of useful [extensions](files/gschema-overrides/zz2.extensions.gschema.override) have been included along with a few modifications to GNOME's [defaults](files/gschema-overrides/zz1.settings.gschema.override).
 
 * Some default pre-installed [rpm packages](recipes/dnf.yml) and [flatpaks](recipes/default-flatpaks.yml) have been removed or added.
 
@@ -58,3 +58,8 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/grondalf/nargothrond
 ```
+
+## Acknowledgments
+* [franute's Nimbus-OS](https://github.com/franute/nimbus-os)
+* [BlueBuild](https://blue-build.org)
+* [Universal Blue](https://github.com/orgs/ublue-os)
