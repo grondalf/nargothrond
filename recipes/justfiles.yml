@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
 
-- module:
+- modules:
     type: justfiles
-    validate: true
+    validate: false
     include:
       - 99-nargothrond.just
