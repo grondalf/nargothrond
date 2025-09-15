@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
+- module:
+    type: justfiles
+    validate: true
+    include:
+      - 99-nargothrond.just
+      - supergfxctl.just
