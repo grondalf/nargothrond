@@ -7,7 +7,7 @@ echo "Cleaning up orphaned DNF packages and leftovers..."
 sudo dnf5 autoremove -y
 
 # Optional: remove cached package files to free disk space
-# sudo dnf5 clean packages
+sudo dnf5 clean packages
 
 # Remove extra orphaned packages installed but not part of any enabled repo
 orphans=$(dnf5 repoquery --extras -q || true)
