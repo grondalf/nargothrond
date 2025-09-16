@@ -1,5 +1,3 @@
-how can I add and option to cleanup all previous failed workflows:
-
 name: bluebuild-nvidia
 on:
   schedule:
