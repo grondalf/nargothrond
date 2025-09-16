@@ -7,4 +7,3 @@ modules:
       - setup-papirus.sh
       - setup-gamemode.sh
       - setup-android-udev-rules.sh
-      - remove-repos.sh
