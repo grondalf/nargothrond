@@ -18,5 +18,6 @@ modules:
   - from-file: default-flatpaks.yml
   - from-file: gnome-extensions.yml
   - from-file: gschema-overrides.yml
+  - from-file: cleanup.yml
 
   - type: signing # Necessary for signing files
