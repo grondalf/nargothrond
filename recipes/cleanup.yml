@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
+modules:
+  - type: script
+    scripts:
+      - remove-orphans.sh
+      - remove-repos.sh
