@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/usr/bin/bash
+set -euox pipefail
 
 echo "Cleaning up orphaned DNF packages and leftovers..."
 
