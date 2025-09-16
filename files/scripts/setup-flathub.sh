@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euox pipefail
 
 # Find Flatpak apps originally installed from the Fedora remote (but not the runtime itself)
 
