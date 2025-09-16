@@ -1,61 +1,40 @@
+how can I add and option to cleanup all previous failed workflows:
+
 name: bluebuild-nvidia
 on:
   schedule:
     - cron:
-        "00 06 * * WED,FRI,SUN"
+        "00 06 * * WED,FRI,SUN" # build at 06:00 UTC every day
+        # (20 minutes after last ublue images start building)
+        # There seems to be mostly a 1 day delay of updates in
+        # the nvidia images compared to the standard ones
   push:
-    paths-ignore:
+    paths-ignore: # don't rebuild if only documentation has changed
       - "**.md"
   pull_request:
     paths-ignore:
       - "**.md"
-  workflow_dispatch:
+  workflow_dispatch: # allow manually triggering builds
 concurrency:
+  # only run one build at a time
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
   cancel-in-progress: true
 jobs:
-  # New cleanup job
-  cleanup-previous-failures:
-    name: Cleanup Previous Failed Workflows
-    runs-on: ubuntu-latest
-    # Only run on workflow_dispatch to avoid infinite cleanup loops
-    if: github.event_name == 'workflow_dispatch'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Cleanup failed workflow runs
-        run: |
-          # Get current workflow ID
-          CURRENT_WORKFLOW_ID=$(gh api repos/${{ github.repository }}/actions/workflows/${{ github.workflow }}.yml --jq '.id')
-          
-          # Get failed runs for this workflow and branch
-          gh api repos/${{ github.repository }}/actions/runs \
-            --jq ".workflow_runs[] | select(.workflow_id == $CURRENT_WORKFLOW_ID and .head_branch == \"${{ github.ref_name }}\" and .status == \"in_progress\" or .status == \"queued\")" \
-            | while read -r run; do
-                run_id=$(echo "$run" | jq -r '.id')
-                if [ "$run_id" != "${{ github.run_id }}" ]; then
-                  echo "Cancelling run $run_id"
-                  gh run cancel $run_id
-                fi
-              done
-        env:
-          GH_TOKEN: ${{ github.token }}
-
   bluebuild:
     name: Build Custom Image
     runs-on: ubuntu-latest
-    needs: cleanup-previous-failures  # Wait for cleanup to finish
     permissions:
       contents: read
       packages: write
       id-token: write
     strategy:
-      fail-fast: false
+      fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
+          # !! Add your recipes here
           - recipe.yml
     steps:
+      # the build is fully handled by the reusable github action
       - name: Build Custom Image
         uses: blue-build/github-action@v1.8
         with:
@@ -64,4 +43,6 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           rechunk: true
+
+          # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
