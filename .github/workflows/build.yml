@@ -2,49 +2,37 @@ name: bluebuild-nvidia
 on:
   schedule:
     - cron:
-        "00 06 * * WED,FRI,SUN"
+        "00 06 * * WED,FRI,SUN" # build at 06:00 UTC every day
+        # (20 minutes after last ublue images start building)
+        # There seems to be mostly a 1 day delay of updates in
+        # the nvidia images compared to the standard ones
   push:
-    paths-ignore:
+    paths-ignore: # don't rebuild if only documentation has changed
       - "**.md"
   pull_request:
     paths-ignore:
       - "**.md"
-  workflow_dispatch:
+  workflow_dispatch: # allow manually triggering builds
 concurrency:
+  # only run one build at a time
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
   cancel-in-progress: true
 jobs:
-  # Cleanup job using community action
-  cleanup-previous-failures:
-    name: Cleanup Previous Failed Workflows
-    runs-on: ubuntu-latest
-    # Only run on manual triggers to avoid infinite cleanup loops
-    if: github.event_name == 'workflow_dispatch'
-    steps:
-      - name: Cancel previous workflow runs
-        uses: styfle/cancel-workflow-action@0.12.1
-        with:
-          workflow_id: ${{ github.workflow }}.yml
-          access_token: ${{ github.token }}
-          branch: ${{ github.ref_name }}  # Only cancel runs for the same branch
-          # Optional: you can add status filter if needed
-          # status: 'in_progress,queued'
-
   bluebuild:
     name: Build Custom Image
     runs-on: ubuntu-latest
-    # Make build job depend on cleanup (optional - remove if you want parallel execution)
-    needs: cleanup-previous-failures
     permissions:
       contents: read
       packages: write
       id-token: write
     strategy:
-      fail-fast: false
+      fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
+          # !! Add your recipes here
           - recipe.yml
     steps:
+      # the build is fully handled by the reusable github action
       - name: Build Custom Image
         uses: blue-build/github-action@v1.8
         with:
@@ -53,4 +41,6 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           rechunk: true
+
+          # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
