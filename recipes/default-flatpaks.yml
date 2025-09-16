@@ -62,3 +62,4 @@ modules:
           - org.bleachbit.BleachBit
           - app.drey.EarTag
           - org.gnome.DejaDup
+          - com.github.wwmm.easyeffects
