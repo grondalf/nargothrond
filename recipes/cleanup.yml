@@ -4,7 +4,11 @@ modules:
   - type: script
     scripts:
 <<<<<<< HEAD
+<<<<<<< HEAD
       - remove-repos.sh
+=======
+      - remove-repos.sh
+>>>>>>> a983e4d (Removed problematic scripts.)
 =======
       - remove-repos.sh
 >>>>>>> a983e4d (Removed problematic scripts.)
