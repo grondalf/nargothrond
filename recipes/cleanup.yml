@@ -3,5 +3,4 @@
 modules:
   - type: script
     scripts:
-      - remove-orphans.sh
       - remove-repos.sh
