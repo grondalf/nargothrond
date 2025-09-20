@@ -12,6 +12,7 @@ modules:
         - atim/preload
         - abn/throttled
         - pesader/hblock
+        - sentry/switcheroo-control_discrete 
       keys:
         - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key   # insync keys
       files:
@@ -21,6 +22,7 @@ modules:
       skip-unavailable: true
       packages:
         - throttled
+        - switcheroo-control
         - starship
         - tailscale
         - java-21-openjdk
@@ -37,6 +39,7 @@ modules:
         - p7zip
         - p7zip-plugins
         - unrar
+        - gh
                 
     remove:
       auto-remove: true

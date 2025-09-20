@@ -7,7 +7,8 @@ modules:
 
   - type: default-flatpaks
     configurations:
-      - scope: user
+      - notify: false
+        scope: user
         repo:
           title: Flathub (user)
       - notify: false
@@ -63,3 +64,7 @@ modules:
           - app.drey.EarTag
           - org.gnome.DejaDup
           - com.github.wwmm.easyeffects
+          - org.freedesktop.Platform.VulkanLayer.vkBasalt
+          - org.freedesktop.Platform.VulkanLayer.MangoHud
+          - org.freedesktop.Platform.VAAPI.nvidia
+          - org.freedesktop.Platform.VAAPI.Intel
