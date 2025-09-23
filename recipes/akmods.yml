@@ -2,6 +2,5 @@
 
 modules:
   - type: akmods
-    base: fsync
     source: ghcr.io/grondalf/modules/akmods:latest
     nvidia-driver: nvidia
