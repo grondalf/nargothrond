@@ -40,7 +40,6 @@ modules:
         - p7zip-plugins
         - unrar
         - gh
-        - gnome-terminal-nautilus
                 
     remove:
       auto-remove: true
