@@ -2,5 +2,6 @@
 
 modules:
   - type: akmods
-    base: main
+    base: bazzite
     nvidia-driver: nvidia
+    install:
