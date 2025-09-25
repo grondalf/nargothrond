@@ -68,3 +68,4 @@ modules:
           - org.freedesktop.Platform.VulkanLayer.MangoHud
           - org.freedesktop.Platform.VAAPI.nvidia
           - org.freedesktop.Platform.VAAPI.Intel
+          - io.github.kolunmi.Bazaar

@@ -45,8 +45,9 @@ modules:
       auto-remove: true
       packages:
         - thermald
-        - firefox
+        - firefox # Replaced with Librewolf Flatpak
         - firefox-langpacks
+        - gnome-software-rpm-ostree # Replaced with Bazaar Flatpak
         - gnome-tour
         - amd-gpu-firmware
         - amd-ucode-firmware
