@@ -9,6 +9,7 @@ modules:
         - throttled.service
         - preload.service
         - hblock.service
+        - com.system76.Scheduler.service
       disabled:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
