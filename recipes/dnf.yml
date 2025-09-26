@@ -8,6 +8,7 @@ modules:
       copr:
         - atim/starship
         - kylegospo/LatencyFleX
+        - kylegospo/system76-scheduler
         - jackgreiner/lsfg-vk-git
         - atim/preload
         - abn/throttled
@@ -23,6 +24,7 @@ modules:
       packages:
         - throttled
         - switcheroo-control
+        - system76-scheduler
         - starship
         - tailscale
         - java-21-openjdk
