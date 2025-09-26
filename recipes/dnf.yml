@@ -24,7 +24,6 @@ modules:
       packages:
         - throttled
         - switcheroo-control
-        - system76-scheduler
         - starship
         - tailscale
         - java-21-openjdk
@@ -41,7 +40,8 @@ modules:
         - p7zip
         - p7zip-plugins
         - unrar
-        - gh
+        - system76-scheduler
+        - gnome-shell-extension-system76-scheduler
 
     remove:
       auto-remove: true
