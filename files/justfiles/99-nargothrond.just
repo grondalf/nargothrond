@@ -48,4 +48,10 @@ setup-latencyflex:
     #!/usr/bin/env bash
     chmod +x /usr/bin/setup-lantencyflex.sh
     ./usr/bin/setup-latencyflex.sh
+
+# Remove LatencyFlex Proton extensions
+remove-latencyflex:
+    #!/usr/bin/env bash
+    chmod +x /usr/bin/remove-lantencyflex.sh
+    ./usr/bin/remove-latencyflex.sh
     
