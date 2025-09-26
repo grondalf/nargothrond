@@ -42,3 +42,10 @@ enable-extensions:
 disable-extensions:
     #!/usr/bin/env bash
     gsettings set org.gnome.shell disable-user-extensions true
+
+# Setup LatencyFlex Proton extensions
+setup-latencyflex:
+    #!/usr/bin/env bash
+    chmod +x /usr/bin/setup-lantencyflex.sh
+    ./usr/bin/setup-latencyflex.sh
+    
