@@ -7,3 +7,4 @@ modules:
       - setup-papirus.sh
       - setup-gamemode.sh
       - setup-latencyflex.sh
+      - remove-latencyflex.sh
