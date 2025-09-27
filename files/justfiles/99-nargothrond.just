@@ -18,8 +18,7 @@ tailscale-set-operator:
 # Enables undervolting:
 enable-undervolting:
     #!/usr/bin/env bash
-    systemctl enable --now intel-undervolt.service
-    sudo intel-undervolt apply
+    systemctl enable --now throttled.service
     
 # Enables supergfxctl
 enable-supergfxctl:
@@ -42,16 +41,4 @@ enable-extensions:
 disable-extensions:
     #!/usr/bin/env bash
     gsettings set org.gnome.shell disable-user-extensions true
-
-# Setup LatencyFlex Proton extensions
-setup-latencyflex:
-    #!/usr/bin/env bash
-    chmod +x /usr/bin/setup-lantencyflex.sh
-    ./usr/bin/setup-latencyflex.sh
-
-# Remove LatencyFlex Proton extensions
-remove-latencyflex:
-    #!/usr/bin/env bash
-    chmod +x /usr/bin/remove-lantencyflex.sh
-    ./usr/bin/remove-latencyflex.sh
     
