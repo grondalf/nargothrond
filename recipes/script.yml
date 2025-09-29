@@ -3,6 +3,7 @@
 modules:
   - type: script
     scripts:
+      - setup-filen.sh
       - setup-autofirma.sh
       - setup-papirus.sh
       - setup-gamemode.sh
