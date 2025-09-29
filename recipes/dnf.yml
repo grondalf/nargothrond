@@ -50,8 +50,6 @@ modules:
         # Support for mouse key-bindings
         - xbindkeys
         - xdotool
-        # Filen
-        - https://github.com/FilenCloudDienste/filen-desktop/releases/download/v3.0.47/Filen_linux_x86_64.rpm
 
     remove:
       auto-remove: true
