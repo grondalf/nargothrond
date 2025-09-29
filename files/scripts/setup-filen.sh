@@ -1,6 +1,6 @@
 #!/bin/bash
 
-setp -eou pipefail
+set -eou pipefail
 
 REPO="FilenCloudDienste/filen-desktop"
 RPM="Filen_linux_x86_64.rpm"
