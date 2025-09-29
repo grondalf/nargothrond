@@ -21,7 +21,6 @@ CHECKSUM_ACTUAL=$(sha256sum "$RPM" | cut -d ' ' -f1)
 
 if [ "$CHECKSUM_EXPECTED" == "$CHECKSUM_ACTUAL" ]; then
   echo "Checksum OK, installing $RPM ..."
-  # Use `dnf` instead of `dnf5` unless you specifically have dnf5 installed
   dnf5 install -y "$RPM"
 else
   echo "Checksum mismatch, aborting."
