@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eou pipefail
 
 # Variables - configure as needed
 ARCH_PATTERN="v3"
