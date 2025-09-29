@@ -11,7 +11,6 @@ modules:
         - kylegospo/system76-scheduler
         - jackgreiner/lsfg-vk-git
         - atim/preload
-        - abn/throttled
         - pesader/hblock
         - sentry/switcheroo-control_discrete 
       keys:
@@ -19,10 +18,16 @@ modules:
       files:
         - insync.repo
         
+    replace:
+      - from-repo: copr:copr.fedorainfracloud.org:abn:throttled
+        skip-unavailable: true
+        packages:
+        - old: thermald
+          new: throttled
+
     install:
       skip-unavailable: true
       packages:
-        - throttled
         - switcheroo-control
         - starship
         - tailscale
@@ -42,11 +47,15 @@ modules:
         - unrar
         - system76-scheduler
         - gnome-shell-extension-system76-scheduler
+        # Support for mouse key-bindings
+        - xbindkeys
+        - xdotool
+        # Filen
+        - https://github.com/FilenCloudDienste/filen-desktop/releases/download/v3.0.47/Filen_linux_x86_64.rpm
 
     remove:
       auto-remove: true
       packages:
-        - thermald
         - firefox # Replaced with Librewolf Flatpak
         - firefox-langpacks
         - gnome-software # Replaced with Bazaar Flatpak
