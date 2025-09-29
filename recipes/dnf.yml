@@ -12,22 +12,17 @@ modules:
         - jackgreiner/lsfg-vk-git
         - atim/preload
         - pesader/hblock
-        - sentry/switcheroo-control_discrete 
+        - sentry/switcheroo-control_discrete
+        - abn/throttled
       keys:
         - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key   # insync keys
       files:
         - insync.repo
         
-    replace:
-      - from-repo: copr:copr.fedorainfracloud.org:abn:throttled
-        skip-unavailable: true
-        packages:
-        - old: thermald
-          new: throttled
-
     install:
       skip-unavailable: true
       packages:
+        - throttled
         - switcheroo-control
         - starship
         - tailscale
@@ -54,6 +49,7 @@ modules:
     remove:
       auto-remove: true
       packages:
+        - thermald
         - firefox # Replaced with Librewolf Flatpak
         - firefox-langpacks
         - gnome-software # Replaced with Bazaar Flatpak
