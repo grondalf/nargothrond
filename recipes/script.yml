@@ -3,7 +3,6 @@
 modules:
   - type: script
     scripts:
-      - setup-proton-cachyos.sh
       - setup-autofirma.sh
       - setup-papirus.sh
       - setup-gamemode.sh
