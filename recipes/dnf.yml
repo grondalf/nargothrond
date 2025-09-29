@@ -9,7 +9,6 @@ modules:
         - atim/starship
         - kylegospo/LatencyFleX
         - kylegospo/system76-scheduler
-        - jackgreiner/lsfg-vk-git
         - atim/preload
         - pesader/hblock
         - sentry/switcheroo-control_discrete
@@ -29,7 +28,6 @@ modules:
         - java-21-openjdk
         - steam-devices
         - uld
-        - latencyflex-vulkan-layer
         - lsfg-vk
         - insync
         - insync-nautilus
