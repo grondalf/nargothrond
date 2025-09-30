@@ -3,5 +3,4 @@
 modules:
   - type: akmods
     source: ghcr.io/grondalf/modules/akmods:latest
-    base: bazzite
     nvidia-driver: nvidia
