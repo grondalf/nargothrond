@@ -17,8 +17,8 @@ modules:
   - from-file: 40-scripts.yml
   - from-file: 50-flatpaks.yml
   - from-file: 60-systemd.yml
-  - from-file: 70-gnome-settings.yml
-  - from-file: 80-gnome-extensions.yml
+  - from-file: 70-gnome-extensions.yml
+  - from-file: 80-gnome-settings.yml
   - from-file: 90-cleanup.yml
 
   - type: signing # Necessary for signing files

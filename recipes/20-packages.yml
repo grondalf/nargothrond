@@ -34,9 +34,7 @@ modules:
         - gamemode
         - hblock
         - android-tools
-        - p7zip
-        - p7zip-plugins
-        - unrar
+        - gh
         - system76-scheduler
         - gnome-shell-extension-system76-scheduler
         # Support for mouse key-bindings
@@ -53,6 +51,7 @@ modules:
         - gnome-tour
         - amd-gpu-firmware
         - amd-ucode-firmware
+        - htop
         - gnome-shell-extension-apps-menu
         - gnome-shell-extension-launch-new-instance
         - gnome-shell-extension-places-menu

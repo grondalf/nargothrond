@@ -6,3 +6,4 @@ modules:
       - setup-autofirma.sh
       - setup-papirus.sh
       - setup-gamemode.sh
+      - setup-filen.sh
