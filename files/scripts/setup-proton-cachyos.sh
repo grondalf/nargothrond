@@ -1,14 +1,13 @@
 #!/bin/bash
-
 set -euo pipefail
 
-# Variables - configure as needed
+# Variables
 ARCH_PATTERN="v3"
 REPO="CachyOS/proton-cachyos"
 API_URL="https://api.github.com/repos/${REPO}/releases/latest"
 SYSTEM_DIR="/usr/share/compatibilitytools.d"
 
-# Colors for output
+# Colors
 RED='\u001B[0;31m'
 GREEN='\u001B[0;32m'
 YELLOW='\u001B[1;33m'
@@ -71,4 +70,4 @@ echo -e "${CYAN}Cleaning up temporary files...${NC}"
 rm -rf "$TXZ_NAME" "$CHECKSUM_NAME" "$PROTON_FOLDER"
 
 echo -e "${GREEN}Proton-CachyOS v3 installed successfully to ${SYSTEM_DIR}.${NC}"
-echo -e "${YELLOW}Please restart Steam and select it from the compatibility tools.${NC}"
+echo -e "${YELLOW}Please restart Steam and select Proton-CachyOS from the compatibility tools.${NC}"
