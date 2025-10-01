@@ -16,10 +16,10 @@ modules:
         repo: 
           title: Flathub (system)
         install:
+          - org.mozilla.firefox
           - org.gtk.Gtk3theme.adw-gtk3
           - org.gtk.Gtk3theme.adw-gtk3-dark
           - it.mijorus.gearlever
-          - io.gitlab.librewolf-community
           - com.github.tchx84.Flatseal
           - com.mattjakeman.ExtensionManager
           - de.haeckerfelix.Fragments
@@ -63,8 +63,6 @@ modules:
           - org.gnome.DejaDup
           - com.github.wwmm.easyeffects
           - com.valvesoftware.Steam.CompatibilityTool.Proton-GE
-          - org.freedesktop.Platform.VulkanLayer.vkBasalt
-          - org.freedesktop.Platform.VulkanLayer.MangoHud
           - org.freedesktop.Platform.VAAPI.nvidia
           - org.freedesktop.Platform.VAAPI.Intel
           - io.github.kolunmi.Bazaar

@@ -1,0 +1,45 @@
+# vim: set ft=make :
+
+# Generates and updates Flatpak aliases
+flatpak-aliases:
+    #!/usr/bin/env bash
+
+    # Directory for bashrc.d scripts
+    BASH_DIR="$HOME/.bashrc.d"
+    ALIAS_FILE="$BASH_DIR/flatpak-aliases.sh"
+
+    mkdir -p "$BASH_DIR"
+
+    # Create a temporary file for new aliases
+    TMP_FILE=$(mktemp)
+
+    # Get installed flatpaks (ID, Name)
+    while IFS=$'\t' read -r app_id app_name; do
+        alias_name=$(echo "$app_name" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
+        [ -z "$alias_name" ] && continue
+        echo "alias $alias_name='flatpak run $app_id'" >> "$TMP_FILE"
+    done < <(flatpak list --app --columns=application,name)
+
+    if [ -s "$TMP_FILE" ]; then
+        mv "$TMP_FILE" "$ALIAS_FILE"
+        chmod +x "$ALIAS_FILE"
+        echo "✅ Flatpak aliases updated in $ALIAS_FILE"
+    else
+        echo "❌ No Flatpak apps found or alias generation failed." >&2
+        rm -f "$TMP_FILE"
+        exit 1
+    fi
+
+    # Ensure ~/.bashrc sources ~/.bashrc.d/
+    if ! grep -q "~/.bashrc.d/" ~/.bashrc; then
+        echo -e "\n# Source all scripts in ~/.bashrc.d" >> ~/.bashrc
+        echo 'for file in ~/.bashrc.d/*.sh; do [ -f "$file" ] && . "$file"; done' >> ~/.bashrc
+    fi
+
+    # Source the new aliases
+    if [ -f ~/.bashrc ]; then
+        source ~/.bashrc
+        echo "🔁 Aliases sourced successfully."
+    else
+        echo "⚠️ Warning: ~/.bashrc not found. Restart your shell to apply changes." >&2
+    fi
