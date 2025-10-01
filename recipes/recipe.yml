@@ -11,7 +11,7 @@ image-version: 42  # Or "latest"
 # Module configuration, executed in order. Multiple instances of the same module is permitted.
 
 modules:
-  - from-file: 10-drivers.yml
+  - from-file: 10-akmods.yml
   - from-file: 20-packages.yml
   - from-file: 30-files.yml
   - from-file: 40-scripts.yml
