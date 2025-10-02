@@ -24,15 +24,15 @@ modules:
         - switcheroo-control
         - starship
         - tailscale
-        - java-21-openjdk
+        # java-21-openjdk 
         - steam-devices
-        - uld
-        - lsfg-vk
+        - uld # Samsung printer support
+        - lsfg-vk # Losesless Frame Generator for Vulkan
         - insync
         - insync-nautilus
-        - preload
+        - preload 
         - gamemode
-        - hblock
+        - hblock # Host Blocker
         - android-tools
         - gh
         - system76-scheduler
@@ -45,7 +45,7 @@ modules:
       auto-remove: true
       packages:
         - thermald
-        - firefox # Replaced with Librewolf Flatpak
+        - firefox
         - firefox-langpacks
         - gnome-software # Replaced with Bazaar Flatpak
         - gnome-tour

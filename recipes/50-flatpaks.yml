@@ -8,10 +8,6 @@ modules:
   - type: default-flatpaks
     configurations:
       - notify: false
-        scope: user
-        repo:
-          title: Flathub (user)
-      - notify: false
         scope: system
         repo: 
           title: Flathub (system)
