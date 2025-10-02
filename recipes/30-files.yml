@@ -9,8 +9,6 @@ modules:
         destination: /etc/systemd/system/bootc-fetch-apply-updates.timer.d/
       - source: system/kargs
         destination: /usr/lib/bootc/kargs.d/
-      - source: system/bin
-        destination: /usr/bin/
       - source: system/etc/throttled.conf
         destination: /etc/
       - source: system/dev/starship-profile
