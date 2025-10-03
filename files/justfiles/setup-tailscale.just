@@ -8,12 +8,12 @@ tailscale-set-operator:
 # Turn on taitscale
 tailscale-on:
     #!/usr/bin/env bash
-    sudo systemctl enable --now tailscaled
+    systemctl enable --now tailscaled
     sudo tailscale up --accept-dns
 
 # Turns off tailscale
 tailscale off:
-     #!/usr/bin/env bash
+    #!/usr/bin/env bash
     sudo tailscale down
-    sudo systemctl stop tailscaled
-    sudo systemctl disable tailscaled
+    systemctl stop tailscaled
+    systemctl disable tailscaled
