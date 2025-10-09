@@ -23,7 +23,7 @@ modules:
 
   - type: script
     scripts:
-      - base/bazzite.sh
+      - setup-bazzite-kernel.sh
 
   - type: initramfs
 
