@@ -12,7 +12,7 @@ modules:
       - source: system/etc/throttled.conf
         destination: /etc/
       - source: system/etc/environment
-        destinación:/etc/
+        destination: /etc/
       - source: system/dev/starship-profile
         destination: /etc/profile.d/
 
