@@ -1,0 +1,25 @@
+# Core NVIDIA Wayland optimizations
+
+# Recommendation for older gpus (GTX 10-Series and older)
+GBM_BACKEND=nvidia-drm
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# Shader compilation caching (reduces stutter in games)
+__GL_SHADER_DISK_CACHE=1
+__GL_SHADER_DISK_CACHE_PATH=/tmp/nvidia-shader-cache
+__GL_SHADER_DISK_CACHE_SIZE=1073741824
+
+# Disable VSync for gaming (reduces input lag)
+__GL_SYNC_TO_VBLANK=0
+
+# Enable unofficial protocol extensions for Wayland compatibility
+__GL_ALLOW_UNOFFICIAL_PROTOCOL=1
+
+# Gaming-specific optimizations
+# Enables NVAPI for features like DLSS in Proton, rtx gpu users test this please
+PROTON_ENABLE_NVAPI=1
+NVIDIA_DRIVER_CAPABILITIES=all
+
+# Gamemode NVIDIA GPU offload environment variable
+GAMEMODERUNEXEC="env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
+
