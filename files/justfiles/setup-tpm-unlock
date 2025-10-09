@@ -1,0 +1,262 @@
+#!/usr/bin/env bash
+set -eou pipefail
+
+# === Color definitions ===
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+# === Run command as root, prompt for sudo if needed ===
+run_as_root() {
+  if [ "$(id -u)" -ne 0 ]; then
+    sudo "$@"
+  else
+    "$@"
+  fi
+}
+
+# === Prompt for sudo password upfront & keep it alive ===
+if [ "$(id -u)" -ne 0 ]; then
+  echo -e "${CYAN}🔐 Requesting administrative privileges...${NC}"
+  sudo -v
+  # Keep-alive: update sudo timestamp until script ends
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+fi
+
+# === Display Title ===
+echo -e "${BLUE}======================================${NC}"
+echo -e "${BLUE}       Fedora TPM2 Auto-Unlock        ${NC}"
+echo -e "${BLUE}======================================${NC}"
+echo
+
+# === Detect System Type ===
+if run_as_root rpm-ostree status | grep -q "State: idle"; then
+    SYSTEM_TYPE="silverblue"
+    echo -e "${GREEN}✔ Detected Fedora Silverblue (ostree).${NC}"
+else
+    SYSTEM_TYPE="workstation"
+    echo -e "${GREEN}✔ Detected Fedora Workstation.${NC}"
+fi
+echo
+
+# === Check TPM2 LUKS auto-unlock configuration ===
+check_tpm_unlock_configured() {
+    local configured=0
+
+    if [[ "$SYSTEM_TYPE" == "silverblue" ]]; then
+        RD_LUKS_UUID="$(grep -oP 'rd.luks.uuid=\K[^ ]+' /proc/cmdline || true)"
+        LUKS_PREFIX="luks-"
+        if [[ "$RD_LUKS_UUID" == ${LUKS_PREFIX}* ]]; then
+            DISK_UUID="${RD_LUKS_UUID#$LUKS_PREFIX}"
+            crypt_disk="/dev/disk/by-uuid/$DISK_UUID"
+            if [[ -L "$crypt_disk" ]] && sudo cryptsetup luksDump "$crypt_disk" | grep -q systemd-tpm2; then
+                configured=1
+            fi
+        fi
+        if run_as_root rpm-ostree initramfs | grep -q tpm2-tss; then
+            configured=1
+        fi
+
+    else
+        luks_uuid="$(grubby --target=cryptodisk_uuid / 2>/dev/null || grub2-probe --target=cryptodisk_uuid / || true)"
+        if [[ -n "$luks_uuid" ]] && sudo cryptsetup luksDump "/dev/disk/by-uuid/$luks_uuid" | grep -q systemd-tpm2; then
+            configured=1
+        fi
+        if grubby --info=ALL | grep -q "rd.luks.options=tpm2-device=/dev/tpmrm0"; then
+            configured=1
+        fi
+        if grep -q "tpm2-device=/dev/tpmrm0" /etc/crypttab 2>/dev/null; then
+            configured=1
+        fi
+    fi
+
+    echo $configured
+}
+
+# === Remove TPM2 LUKS auto-unlock configuration ===
+remove_tpm_luks_autounlock() {
+    echo -e "${YELLOW}🔒 Removing existing TPM2 LUKS auto-unlock configuration...${NC}"
+
+    if [[ "$SYSTEM_TYPE" == "silverblue" ]]; then
+        RD_LUKS_UUID="$(grep -oP 'rd.luks.uuid=\K[^ ]+' /proc/cmdline || true)"
+        LUKS_PREFIX="luks-"
+        if [[ "$RD_LUKS_UUID" == ${LUKS_PREFIX}* ]]; then
+            DISK_UUID="${RD_LUKS_UUID#$LUKS_PREFIX}"
+            CRYPT_DISK="/dev/disk/by-uuid/$DISK_UUID"
+            if [[ -L "$CRYPT_DISK" ]]; then
+                echo -e "${CYAN}Please enter your LUKS passphrase to remove TPM2 keyslot... 🔑${NC}"
+                if ! timeout 10s sudo systemd-cryptenroll --wipe-slot=tpm2 "$CRYPT_DISK"; then
+                    echo -e "${YELLOW}⚠️ Warning: TPM2 wipe command timed out or failed.${NC}"
+                fi
+                echo -e "${CYAN}Wipe TPM2 keyslot command completed.${NC}"
+            else
+                echo -e "${RED}❌ LUKS device $CRYPT_DISK not found; skipping TPM2 keyslot removal.${NC}"
+            fi
+        fi
+
+        echo -e "${YELLOW}Checking TPM2 support in rpm-ostree initramfs...${NC}"
+        local INITRAMFS_ENABLED
+        INITRAMFS_ENABLED=$(run_as_root rpm-ostree initramfs | grep -c "tpm2")
+        if [[ "$INITRAMFS_ENABLED" -gt 0 ]]; then
+            echo -e "${YELLOW}Disabling TPM2 support in rpm-ostree initramfs...${NC}"
+            if run_as_root rpm-ostree initramfs --disable; then
+                echo -e "${GREEN}✅ TPM2 support disabled in initramfs.${NC}"
+            else
+                echo -e "${RED}⚠️ Failed to disable initramfs configuration.${NC}"
+            fi
+        else
+            echo -e "${CYAN}TPM2 support in initramfs already disabled, skipping.${NC}"
+        fi
+
+    else
+        LUKS_UUID="$(grubby --target=cryptodisk_uuid / 2>/dev/null || grub2-probe --target=cryptodisk_uuid / || true)"
+        if [[ -n "$LUKS_UUID" ]]; then
+            echo -e "${CYAN}Please enter your LUKS passphrase to remove TPM2 keyslot... 🔑${NC}"
+            if ! timeout 10s sudo systemd-cryptenroll --wipe-slot=tpm2 /dev/disk/by-uuid/"${LUKS_UUID}"; then
+                echo -e "${YELLOW}⚠️ Warning: TPM2 wipe command timed out or failed.${NC}"
+            fi
+            echo -e "${CYAN}Wipe TPM2 keyslot command completed.${NC}"
+        else
+            echo -e "${RED}❌ LUKS UUID not found; skipping TPM2 keyslot removal.${NC}"
+        fi
+
+        echo -e "${YELLOW}Removing TPM2 options from kernel boot args and system config...${NC}"
+        run_as_root grubby --update-kernel=ALL --remove-args="rd.luks.options=tpm2-device=/dev/tpmrm0" || true
+        run_as_root sed -i '/tpm2-device=\/dev\/tpmrm0/d' /etc/crypttab || true
+        run_as_root rm -f /etc/dracut.conf.d/tpm2.conf || true
+    fi
+
+    echo -e "${GREEN}✅ TPM2 auto-unlock configuration successfully removed.${NC}"
+    echo
+}
+
+# === Main execution flow ===
+
+TPM_CONFIGURED=$(check_tpm_unlock_configured)
+
+if [[ "$TPM_CONFIGURED" -eq 1 ]]; then
+    echo -e "${YELLOW}⚠️ TPM2 auto-unlock is currently configured on this system.${NC}"
+    read -rp "Remove existing TPM2 configuration before continuing? (y/N): " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        remove_tpm_luks_autounlock
+    else
+        echo -e "${CYAN}No changes made. Exiting.${NC}"
+        exit 0
+    fi
+fi
+
+# === Concise Warnings & Disclaimer ===
+echo -e "${BLUE}======================================${NC}"
+echo -e "${RED}🚨 IMPORTANT NOTICE 🚨${NC}"
+echo -e "${YELLOW}• Vulnerable CPUs (e.g. AMD Zen2/Zen3, likely Zen1) risk security."
+echo "• Use only on compatible hardware."
+echo -e "${BLUE}======================================${NC}"
+echo
+
+echo -e "${CYAN}This script enables TPM2 auto-unlock for your LUKS-encrypted root."
+echo "It ties PCR 7 + 14 to Secure Boot and moklist status.${NC}"
+read -rp "Proceed with TPM2 auto-unlock enablement? (y/N): " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo -e "${CYAN}Operation cancelled by user.${NC}"
+    exit 0
+fi
+echo
+
+if [[ "$SYSTEM_TYPE" == "silverblue" ]]; then
+
+    echo -e "${BLUE}=== TPM2 Enrollment for Fedora Silverblue ===${NC}"
+
+    RD_LUKS_UUID="$(grep -oP 'rd.luks.uuid=\K[^ ]+' /proc/cmdline)"
+    if [[ -z "$RD_LUKS_UUID" ]]; then
+        echo -e "${RED}❌ rd.luks.uuid kernel parameter not found.${NC}"
+        exit 1
+    fi
+
+    LUKS_PREFIX="luks-"
+    if [[ "$RD_LUKS_UUID" == ${LUKS_PREFIX}* ]]; then
+        DISK_UUID="${RD_LUKS_UUID#$LUKS_PREFIX}"
+    else
+        echo -e "${RED}❌ Unexpected LUKS UUID format.${NC}"
+        exit 1
+    fi
+
+    CRYPT_DISK="/dev/disk/by-uuid/$DISK_UUID"
+    if [[ ! -L "$CRYPT_DISK" ]]; then
+        echo -e "${RED}❌ LUKS device $CRYPT_DISK not found.${NC}"
+        exit 1
+    fi
+
+    read -rp "Set TPM PIN? (y/N): " -n 1 -r
+    echo
+    SET_PIN_ARG=""
+    [[ $REPLY =~ ^[Yy]$ ]] && SET_PIN_ARG=" --tpm2-with-pin=yes "
+
+    echo -e "${CYAN}Enter your LUKS passphrase to enroll TPM2... 🔐${NC}"
+    run_as_root systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=7+14 $SET_PIN_ARG "$CRYPT_DISK"
+
+    if run_as_root lsinitrd 2>&1 | grep -q tpm2-tss; then
+        if run_as_root rpm-ostree initramfs | grep -q tpm2; then
+            echo -e "${YELLOW}TPM2 present in rpm-ostree initramfs, reapplying...${NC}"
+            run_as_root rpm-ostree initramfs
+        fi
+        run_as_root rpm-ostree initramfs --enable --arg=--force-add --arg=tpm2-tss
+    else
+        echo -e "${GREEN}TPM2 support is present in initramfs.${NC}"
+    fi
+
+    echo -e "${GREEN}✅ TPM2 auto-unlock configured on Fedora Silverblue.${NC}"
+    echo -e "${BLUE}Please reboot your system to apply changes.${NC}"
+
+else
+
+    echo -e "${BLUE}=== TPM2 Enrollment for Fedora Workstation ===${NC}"
+
+    LUKS_UUID="$(grubby --target=cryptodisk_uuid / 2>/dev/null || grub2-probe --target=cryptodisk_uuid /)"
+    if [[ -z "$LUKS_UUID" ]]; then
+        echo -e "${RED}❌ Could not determine LUKS UUID.${NC}"
+        exit 1
+    fi
+
+    echo -e "${GREEN}Found LUKS UUID: ${LUKS_UUID}${NC}"
+
+    read -rp "Set TPM PIN? (y/N): " -n 1 -r
+    echo
+    SET_PIN_ARG=""
+    [[ $REPLY =~ ^[Yy]$ ]] && SET_PIN_ARG=" --tpm2-with-pin=yes "
+
+    echo -e "${CYAN}You will be prompted for your LUKS passphrase... 🔐${NC}"
+    if ! run_as_root systemd-cryptenroll --tpm2-pcrs=7+14 --tpm2-device=/dev/tpmrm0 $SET_PIN_ARG --wipe-slot=tpm2 /dev/disk/by-uuid/"${LUKS_UUID}"; then
+        echo -e "${RED}❌ TPM2 enrollment failed.${NC}"
+        exit 1
+    fi
+
+    echo -e "${YELLOW}Confirming TPM key slot...${NC}"
+    run_as_root systemd-cryptenroll /dev/disk/by-uuid/"${LUKS_UUID}"
+
+    echo -e "${YELLOW}Updating kernel boot options...${NC}"
+    if ! run_as_root grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=/dev/tpmrm0"; then
+        echo -e "${RED}❌ Failed to update boot options.${NC}"
+        exit 1
+    fi
+
+    echo -e "${YELLOW}Updating /etc/crypttab...${NC}"
+    echo "luks-${LUKS_UUID} UUID=${LUKS_UUID} none tpm2-device=/dev/tpmrm0" | run_as_root tee /etc/crypttab > /dev/null
+
+    echo -e "${YELLOW}Configuring dracut for TPM2...${NC}"
+    echo 'add_dracutmodules+=" tpm2-tss "' | run_as_root tee /etc/dracut.conf.d/tpm2.conf > /dev/null
+
+    echo -e "${GREEN}✅ TPM2 auto-unlock configured on Fedora Workstation.${NC}"
+    echo -e "${BLUE}Please reboot your system to apply changes.${NC}"
+
+    echo -e "${YELLOW}Regenerating GRUB configuration...${NC}"
+    run_as_root grub2-mkconfig -o /boot/grub2/grub.cfg || echo -e "${RED}⚠️ Warning: Failed to regenerate GRUB configuration.${NC}"
+
+    echo -e "${YELLOW}Rebuilding initramfs...${NC}"
+    run_as_root dracut -vf || echo -e "${RED}⚠️ Warning: Failed to rebuild initramfs.${NC}"
+
+fi

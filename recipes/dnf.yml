@@ -24,7 +24,6 @@ modules:
         - switcheroo-control
         - starship
         - tailscale
-        # java-21-openjdk 
         - steam-devices
         - uld # Samsung printer support
         - lsfg-vk # Losesless Frame Generator for Vulkan
@@ -44,17 +43,31 @@ modules:
     remove:
       auto-remove: true
       packages:
-        - thermald
-        - firefox
-        - firefox-langpacks
-        - gnome-software # Replaced with Bazaar Flatpak
-        - gnome-tour
-        - amd-gpu-firmware
-        - amd-ucode-firmware
-        - htop
-        - gnome-shell-extension-apps-menu
+        # Fedora
+        - fedora-bookmarks
+        - fedora-chromium-config
+        - fedora-chromium-config-gnome
+        - fedora-flathub-remote
+        # ---
+        # Gnome
+        - gnome-classic-session
+        - gnome-shell-extensions-apps-menu
+        - gnome-shell-extension-background-logo
         - gnome-shell-extension-launch-new-instance
         - gnome-shell-extension-places-menu
         - gnome-shell-extension-window-list
-        - gnome-shell-extension-background-logo
         - gnome-shell-extension-supergfxctl-gex
+        - gnome-system-monitor
+        - gnome-tour
+        - gnome-software
+        - totem-video-thumbnailer
+        # ---
+        # Unused firmware
+        - amd-gpu-firmware
+        - amd-ucode-firmware
+        # ---
+        # Other
+        - firefox
+        - firefox-langpacks
+        - thermald
+        - htop
