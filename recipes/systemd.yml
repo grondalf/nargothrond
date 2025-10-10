@@ -10,12 +10,6 @@ modules:
         - preload.service
         - hblock.service
         - com.system76.Scheduler.service
-        - topgrade.timer
       disabled:
         - NetworkManager-wait-online.service
         - rpm-ostreed-automatic.timer
-        - flatpak-add-fedora-repos.service
-        - flatpak-system-update.timer
-        - flatpak-system-update.service
-        - flatpak-user-update.timer
-        - flatpak-user-update.service
