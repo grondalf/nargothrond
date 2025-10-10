@@ -39,6 +39,8 @@ modules:
         # Support for mouse key-bindings
         - xbindkeys
         - xdotool
+        # Updater
+        - topgrade
 
     remove:
       auto-remove: true
