@@ -2,5 +2,6 @@
 
 modules:
   - type: script
-    scripts:
-      - remove-repos.sh
+    snippets:
+      # removes all repos except for fedora.repo and fedora-updates.repo
+      - 'find /etc/yum.repos.d/ -type f -not \( -name fedora.repo -o -name fedora-updates.repo \) -delete'
