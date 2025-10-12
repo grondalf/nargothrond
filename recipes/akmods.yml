@@ -6,4 +6,4 @@ modules:
     base: bazzite
     nvidia-driver: nvidia
 
-  -type: initramfs
+  - type: initramfs
