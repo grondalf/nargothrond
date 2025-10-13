@@ -9,6 +9,8 @@
 This image comes with the following changes:
 
 * The latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/) are included.
+  
+* [Bazzite's kernel](https://github.com/bazzite-org/kernel-bazzite) for better gaming support.
 
 * Electronic signtures support with [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx).
 
