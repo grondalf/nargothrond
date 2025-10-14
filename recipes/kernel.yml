@@ -9,6 +9,7 @@ modules:
     install:
       packages:
         - scx-scheds
+        - scx-manager
     remove:
       packages:
         - kernel
