@@ -65,5 +65,6 @@ cosign verify --key cosign.pub ghcr.io/grondalf/nargothrond
 
 ## Acknowledgments
 * [franute's Nimbus-OS](https://github.com/franute/nimbus-os)
+* [askpng's Solarpowered](https://github.com/askpng/solarpowered)
 * [BlueBuild](https://blue-build.org)
 * [Universal Blue](https://github.com/orgs/ublue-os)
