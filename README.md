@@ -12,7 +12,7 @@ This image comes with the following changes:
   
 * [Bazzite's kernel](https://github.com/bazzite-org/kernel-bazzite) for better gaming support.
 
-* [CachyOS' sched-ext]() kernel thread scheduler for imporved performance. 
+* [CachyOS' sched-ext](https://wiki.cachyos.org/configuration/sched-ext/) kernel thread scheduler for improved responsiveness. 
 
 * Electronic signtures support with [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx).
 
