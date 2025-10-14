@@ -12,6 +12,8 @@ This image comes with the following changes:
   
 * [Bazzite's kernel](https://github.com/bazzite-org/kernel-bazzite) for better gaming support.
 
+* [CachyOS' sched-ext]() kernel thread scheduler for imporved performance. 
+
 * Electronic signtures support with [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx).
 
 * The `rpm-ostreed-automatic.service` service is disabled in favour of `bootc-fetch-apply-updates.service`.
