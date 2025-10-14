@@ -8,7 +8,7 @@
 
 This image comes with the following changes:
 
-* The latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/) are included.
+* The latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/). 
   
 * [Bazzite's kernel](https://github.com/bazzite-org/kernel-bazzite) for better gaming support.
 
