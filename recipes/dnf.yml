@@ -34,13 +34,9 @@ modules:
         - hblock # Host Blocker
         - android-tools
         - gh
-        - system76-scheduler
-        - gnome-shell-extension-system76-scheduler
         # Support for mouse key-bindings
         - xbindkeys
         - xdotool
-        # Updater
-        - topgrade
 
     remove:
       auto-remove: true
