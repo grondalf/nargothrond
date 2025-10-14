@@ -7,7 +7,6 @@ modules:
       nonfree: negativo17
       copr:
         - atim/starship
-        - kylegospo/system76-scheduler
         - atim/preload
         - pesader/hblock
         - sentry/switcheroo-control_discrete
