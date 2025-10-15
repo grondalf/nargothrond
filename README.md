@@ -8,21 +8,12 @@
 
 This image comes with the following changes:
 
-* The latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/). 
-  
-* [Bazzite's kernel](https://github.com/bazzite-org/kernel-bazzite) for better gaming support.
-
-* [CachyOS' sched-ext](https://wiki.cachyos.org/configuration/sched-ext/) kernel thread scheduler for improved responsiveness. 
-
+* The latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/).   
 * Electronic signtures support with [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx).
-
 * The `rpm-ostreed-automatic.service` service is disabled in favour of `bootc-fetch-apply-updates.service`.
 An override has been set for the latter to avoid automatic reboots.
-
 * Undervolt support with [throttled](https://github.com/throttled/throttled)
-   
 * A selection of useful [extensions](files/gschema-overrides/zz2.extensions.gschema.override) have been included along with a few modifications to GNOME's [defaults](files/gschema-overrides/zz1.settings.gschema.override).
-
 * Some default pre-installed [rpm packages](recipes/dnf.yml) and [flatpaks](recipes/default-flatpaks.yml) have been removed or added.
 
 ## Installation
