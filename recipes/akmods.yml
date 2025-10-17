@@ -4,5 +4,3 @@ modules:
   - type: akmods
     source: ghcr.io/grondalf/modules/akmods:latest
     nvidia-driver: nvidia
-
-  - type: initramfs
