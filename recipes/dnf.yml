@@ -33,6 +33,7 @@ modules:
         - hblock # Host Blocker
         - android-tools
         - gh
+        - rsync
         # Support for mouse key-bindings
         - xbindkeys
         - xdotool
