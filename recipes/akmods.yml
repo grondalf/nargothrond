@@ -2,5 +2,5 @@
 
 modules:
   - type: akmods
-    source: ghcr.io/grondalf/modules/akmods:latest
+    install: [] 
     nvidia-driver: nvidia
