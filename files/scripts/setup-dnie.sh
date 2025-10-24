@@ -27,7 +27,7 @@ if [[ "${ACTUAL_MD5}" != "${EXPECTED_MD5}" ]]; then
     exit 2
 else
     echo "MD5 checksum OK. Proceeding with installation."
-    sudo rpm -i "${RPM_FILENAME}"
+    sudo dnf5 install "${RPM_FILENAME}"
     rm -f "${RPM_FILENAME}"
 fi
 
