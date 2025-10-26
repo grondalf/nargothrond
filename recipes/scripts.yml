@@ -3,7 +3,5 @@
 modules:
   - type: script
     scripts:
-      - setup-dnie.sh
-      - setup-autofirma.sh
       - setup-papirus.sh
       - setup-gamemode.sh
