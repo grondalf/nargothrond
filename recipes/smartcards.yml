@@ -2,9 +2,10 @@
 
 modules:
   - type: dnf
-    packages:
-      - pcsc-tools
-      - libnss3-tools
+    install:
+      packages:
+        - pcsc-tools
+        - libnss3-tools
 
   - type: systemd
     system:
