@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
+modules:
+  - type: dnf
+    packages:
+      - pcsc-tools
+      - libnss3-tools
+
+  - type: systemd
+    system:
+      enabled:
+        - pcscd.service
+     
+  - type: script
+    scripts:
+      - setup-dnie.sh
+      - setup-autofirma.sh
