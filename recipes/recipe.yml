@@ -13,7 +13,6 @@ image-version: 42  # Or "latest"
 modules:
   - from-file: akmods.yml
   - from-file: dnf.yml
-  - from-file: smartcards.yml
   - from-file: files.yml
   - from-file: scripts.yml
   - from-file: flatpaks.yml
