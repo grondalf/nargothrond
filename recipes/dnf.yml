@@ -25,12 +25,12 @@ modules:
         - tailscale
         - steam-devices
         - uld # Samsung printer support
-        - lsfg-vk # Losesless Frame Generator for Vulkan
+        - lsfg-vk
         - insync
         - insync-nautilus
         - preload 
         - gamemode
-        - hblock # Host Blocker
+        #- hblock # Host Blocker
         - android-tools
         - gh
         - rsync
