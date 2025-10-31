@@ -17,7 +17,7 @@ modules:
   - from-file: scripts.yml
   - from-file: flatpaks.yml
   - from-file: systemd.yml
-  #- from-file: gnome-extensions.yml
+  - from-file: gnome-extensions.yml
   - from-file: gnome-settings.yml
   - from-file: cleanup.yml
 
