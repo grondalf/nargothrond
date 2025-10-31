@@ -9,7 +9,6 @@ modules:
         - atim/starship
         - atim/preload
         - pesader/hblock
-        - sentry/switcheroo-control_discrete
         - abn/throttled
       keys:
         - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key   # insync keys
@@ -20,7 +19,6 @@ modules:
       skip-unavailable: true
       packages:
         - throttled
-        - switcheroo-control
         - starship
         - tailscale
         - steam-devices
@@ -30,7 +28,7 @@ modules:
         - insync-nautilus
         - preload 
         - gamemode
-        #- hblock # Host Blocker
+        - hblock # Host Blocker
         - android-tools
         - gh
         - rsync
@@ -41,13 +39,12 @@ modules:
     remove:
       auto-remove: true
       packages:
-        # Fedora
+        # --- Fedora ---
         - fedora-bookmarks
         - fedora-chromium-config
         - fedora-chromium-config-gnome
         - fedora-flathub-remote
-        # ---
-        # Gnome
+        # --- Gnome ---
         - gnome-classic-session
         - gnome-shell-extensions-apps-menu
         - gnome-shell-extension-background-logo
@@ -59,12 +56,10 @@ modules:
         - gnome-tour
         - gnome-software
         - totem-video-thumbnailer
-        # ---
-        # Unused firmware
+        # --- Unused firmware ---
         - amd-gpu-firmware
         - amd-ucode-firmware
-        # ---
-        # Other
+        # --- Other ---
         - firefox
         - firefox-langpacks
         - thermald
