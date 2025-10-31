@@ -4,5 +4,5 @@ modules:
   - type: gschema-overrides
     include:
       - zz1.settings.gschema.override
-      - zz2.extensions.gschema.override
+      #- zz2.extensions.gschema.override
       - zz3.extension-settings.gschema.override
