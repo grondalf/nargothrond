@@ -31,7 +31,8 @@ jobs:
         recipe:
           # !! Add your recipes here
           - recipe.yml
-          - recipe-nvk.yml
+          - recipe-nvidia.yml
+          - recipe-nvidia-open.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
