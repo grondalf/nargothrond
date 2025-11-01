@@ -11,7 +11,7 @@ image-version: 43  # Or "latest"
 # Module configuration, executed in order. Multiple instances of the same module is permitted.
 
 modules:
-  #- from-file: akmods.yml
+  - from-file: akmods.yml
   - from-file: dnf.yml
   - from-file: files.yml
   - from-file: scripts.yml
