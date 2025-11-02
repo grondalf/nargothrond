@@ -39,6 +39,14 @@ modules:
         - xbindkeys
         - xdotool
         - python-envycontrol
+        # GNOME Extensions
+        - gnome-shell-extension-appindicator
+        - gnome-shell-extension-gamemode
+        - gnome-shell-extension-blur-my-shell
+        - gnome-shell-extension-caffeine
+        - gnome-shell-extension-drive-menu
+        - gnome-shell-extension-gsconnect
+        - gnome-shell-extension-screen-autorotate
 
     remove:
       auto-remove: true
@@ -75,7 +83,7 @@ modules:
       - setup-papirus.sh
       - setup-gamemode.sh
       - setup-flathub.sh
-      
+  
   - type: default-flatpaks
     configurations:
       - notify: false
@@ -163,15 +171,11 @@ modules:
   
   - type: gnome-extensions
     install:
-      - 615   # AppIndicator and KStatusNotifierItem Support
-      - 517   # Caffeine
       - 3210  # Compiz windows effect
       - 97    # Coverflow Alt-Tab
       - 3780  # ddterm
       - 4158  # Gnome 4x UI Improvements
-      - 1319  # GSConnect
       - 2236  # Night Theme Switcher
-      - 7     # Removable Drive Menu
       - 3733  # Tiling Assistant
       - 355   # Status Area Horizontal Spacing
       - 4491  # Privacy Quick Settings
@@ -181,10 +185,8 @@ modules:
       - 7048  # Rounded Window Corners Reborn
       - 5105  # RebootToUEFI
       - 7406  # Spotify Controls + Track Info
-      - 7074  # GameMode Shell Extension
       - 3210  # Compiz windows effect
       #- 3956  # GNOME Fuzzy App Search
-      #- 3193  # Blur my Shell
       #- 6139  # Tailscale QS
  
   - type: gschema-overrides
