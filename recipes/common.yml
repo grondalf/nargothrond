@@ -181,13 +181,14 @@ modules:
       - 4491  # Privacy Quick Settings
       - 4269  # Alphabetical App Grid
       - 5724  # Battery Health Charging
-      - 8277  # Screen Brightness Governor
       - 7048  # Rounded Window Corners Reborn
       - 5105  # RebootToUEFI
-      - 7406  # Spotify Controls + Track Info
       - 3210  # Compiz windows effect
+
       #- 3956  # GNOME Fuzzy App Search
       #- 6139  # Tailscale QS
+      #- 8277  # Screen Brightness Governor
+      #- 7406  # Spotify Controls + Track Info
  
   - type: gschema-overrides
     include:
