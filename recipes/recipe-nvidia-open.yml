@@ -8,19 +8,9 @@ description: This is my personal OS image with proprietary NVIDIA drivers.
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 43  # Or "latest"
 
-# Module configuration, executed in order. Multiple instances of the same module is permitted.
-
 modules:
   - type: akmods
     install: [] 
     nvidia-driver: nvidia-open
-  - from-file: dnf.yml
-  - from-file: files.yml
-  - from-file: scripts.yml
-  - from-file: flatpaks.yml
-  - from-file: systemd.yml
-  - from-file: gnome-extensions.yml
-  - from-file: gnome-settings.yml
-  - from-file: cleanup.yml
-
-  - type: signing # Necessary for signing files
+    
+  - from-file: common.yml

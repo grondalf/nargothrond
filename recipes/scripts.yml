@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
-
-modules:
-  - type: script
-    scripts:
-      - setup-autofirma.sh
-      - setup-papirus.sh
-      - setup-gamemode.sh

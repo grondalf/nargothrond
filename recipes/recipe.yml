@@ -1,4 +1,3 @@
----
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 
@@ -11,13 +10,4 @@ image-version: 43  # Or "latest"
 # Module configuration, executed in order. Multiple instances of the same module is permitted.
 
 modules:
-  - from-file: dnf.yml
-  - from-file: files.yml
-  - from-file: scripts.yml
-  - from-file: flatpaks.yml
-  - from-file: systemd.yml
-  - from-file: gnome-extensions.yml
-  - from-file: gnome-settings.yml
-  - from-file: cleanup.yml
-
-  - type: signing # Necessary for signing files
+  - from-file: common.yml

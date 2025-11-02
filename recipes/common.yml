@@ -1,0 +1,208 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+
+# Module configuration, executed in order. Multiple instances of the same module is permitted.
+
+modules:
+  - from-file: /common/dnf.yml
+  - from-file: /common/files.yml
+  - from-file: /common/scripts.yml
+  - from-file: /common/flatpaks.yml
+  - from-file: /common/systemd.yml
+  - from-file: /common/gnome-extensions.yml
+  - from-file: /common/gnome-settings.yml
+  - from-file: /common/cleanup.yml
+
+  - type: signing # Necessary for signing files
+  
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      nonfree: negativo17
+      copr:
+        - atim/starship
+        - atim/preload
+        - abn/throttled
+        - sunwire/envycontrol 
+      keys:
+        - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key   # insync keys
+      files:
+        - insync.repo
+        
+    install:
+      skip-unavailable: true
+      packages:
+        - throttled
+        - starship
+        - tailscale
+        - steam-devices
+        - uld # Samsung printer support
+        - lsfg-vk
+        - insync
+        - insync-nautilus
+        - preload 
+        - gamemode
+        - android-tools
+        - gh
+        - rsync
+        # Support for mouse key-bindings
+        - xbindkeys
+        - xdotool
+        - python-envycontrol
+
+    remove:
+      auto-remove: true
+      packages:
+        # --- Fedora ---
+        - fedora-bookmarks
+        - fedora-chromium-config
+        - fedora-chromium-config-gnome
+        - fedora-flathub-remote
+        # --- Gnome ---
+        - gnome-classic-session
+        - gnome-shell-extensions-apps-menu
+        - gnome-shell-extension-background-logo
+        - gnome-shell-extension-launch-new-instance
+        - gnome-shell-extension-places-menu
+        - gnome-shell-extension-window-list
+        - gnome-shell-extension-supergfxctl-gex
+        - gnome-system-monitor
+        - gnome-tour
+        - gnome-software
+        - totem-video-thumbnailer
+        # --- Unused firmware ---
+        - amd-gpu-firmware
+        - amd-ucode-firmware
+        # --- Other ---
+        - firefox
+        - firefox-langpacks
+        - thermald
+        - htop
+        
+  - type: script
+    scripts:
+      - setup-autofirma.sh
+      - setup-papirus.sh
+      - setup-gamemode.sh
+      - setup-flathub.sh
+      
+  - type: default-flatpaks
+    configurations:
+      - notify: false
+        scope: system
+        repo: 
+          title: Flathub (system)
+        install:
+          - org.mozilla.firefox
+          - org.gtk.Gtk3theme.adw-gtk3
+          - org.gtk.Gtk3theme.adw-gtk3-dark
+          - it.mijorus.gearlever
+          - com.github.tchx84.Flatseal
+          - com.mattjakeman.ExtensionManager
+          - de.haeckerfelix.Fragments
+          - io.gitlab.adhami3310.Impression
+          - org.gnome.Calculator
+          - org.gnome.Calendar
+          - org.gnome.Contacts
+          - org.gnome.Logs
+          - org.gnome.Loupe
+          - org.gnome.SimpleScan
+          - org.gnome.Showtime
+          - org.gnome.TextEditor
+          - org.gnome.Papers
+          - com.github.Matoking.protontricks
+          - com.github.jeromerobert.pdfarranger
+          - com.heroicgameslauncher.hgl
+          - com.ranfdev.DistroShelf
+          - com.spotify.Client
+          - com.stremio.Stremio
+          - com.usebottles.bottles
+          - com.valvesoftware.Steam
+          - com.vysp3r.ProtonPlus
+          - dev.qwery.AddWater
+          - io.github.Foldex.AdwSteamGtk
+          - io.github.diegoivan.pdf_metadata_editor
+          - io.github.flattool.Warehouse
+          - md.obsidian.Obsidian
+          - org.gnome.Geary
+          - org.gnome.TextEditor
+          - org.onlyoffice.desktopeditors
+          - org.telegram.desktop
+          - io.github.fabrialberio.pinapp
+          - page.tesk.Refine
+          - fm.reaper.Reaper
+          - com.calibre_ebook.calibre
+          - io.bassi.Amberol
+          - org.nickvision.tubeconverter
+          - org.rncbc.qpwgraph
+          - org.bleachbit.BleachBit
+          - app.drey.EarTag
+          - org.gnome.DejaDup
+          - com.github.wwmm.easyeffects
+          - com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+          - org.freedesktop.Platform.VAAPI.nvidia
+          - org.freedesktop.Platform.VAAPI.Intel
+          - io.github.kolunmi.Bazaar
+          - io.github.peazip.PeaZip
+      
+  - type: files
+    files:
+      - source: system/common/bootc-service-override
+        destination: /etc/systemd/system/bootc-fetch-apply-updates.service.d/
+      - source: system/common/bootc-service-timer-override
+        destination: /etc/systemd/system/bootc-fetch-apply-updates.timer.d/
+      - source: system/kargs/fstrim-config.toml
+        destination: /usr/lib/bootc/kargs.d/
+      - source: system/etc/throttled.conf
+        destination: /etc/
+      - source: system/dev/starship-profile
+        destination: /etc/profile.d/
+
+  - type: justfiles
+  
+  - type: systemd
+    system:
+      enabled:
+        - bootc-fetch-apply-updates.timer
+        - tailscaled.service
+        - throttled.service
+        - preload.service
+      disabled:
+        - NetworkManager-wait-online.service
+        - rpm-ostreed-automatic.timer
+  
+  - type: gnome-extensions
+    install:
+      - 615   # AppIndicator and KStatusNotifierItem Support
+      - 517   # Caffeine
+      - 3210  # Compiz windows effect
+      - 97    # Coverflow Alt-Tab
+      - 3780  # ddterm
+      - 4158  # Gnome 4x UI Improvements
+      - 1319  # GSConnect
+      - 2236  # Night Theme Switcher
+      - 7     # Removable Drive Menu
+      - 3733  # Tiling Assistant
+      - 355   # Status Area Horizontal Spacing
+      - 4491  # Privacy Quick Settings
+      - 4269  # Alphabetical App Grid
+      - 5724  # Battery Health Charging
+      - 8277  # Screen Brightness Governor
+      - 7048  # Rounded Window Corners Reborn
+      - 5105  # RebootToUEFI
+      - 7406  # Spotify Controls + Track Info
+      - 7074  # GameMode Shell Extension
+      - 3210  # Compiz windows effect
+      #- 3956  # GNOME Fuzzy App Search
+      #- 3193  # Blur my Shell
+      #- 6139  # Tailscale QS
+ 
+  - type: gschema-overrides
+    include:
+      - zz1.settings.gschema.override
+      #- zz2.extensions.gschema.override
+      - zz3.extension-settings.gschema.override
+      
+  - type: signing # Necessary for signing files

@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
-
-modules:
-  - type: gschema-overrides
-    include:
-      - zz1.settings.gschema.override
-      #- zz2.extensions.gschema.override
-      - zz3.extension-settings.gschema.override
