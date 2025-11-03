@@ -6,7 +6,7 @@
 
 Three images are provided with the following differences:
 
-* [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml) is the base image with fully open source GPU drivers.
+* [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml) $\equiv$ base image with fully open source GPU drivers.
 * [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml) comes with the latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/) on top of the base image.
 * [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml) uses NVIDIA's open kernel modules instead of proprietary ones.
 
