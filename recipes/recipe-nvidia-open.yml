@@ -12,7 +12,7 @@ modules:
   - type: akmods
     base: main
     install: [] 
-    nvidia-driver: nvidia
+    nvidia-driver: nvidia-open
 
   - from-file: common/main.yml
   - from-file: common/nvidia.yml
