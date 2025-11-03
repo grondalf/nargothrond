@@ -14,7 +14,7 @@ modules:
     install: [] 
     nvidia-driver: nvidia
 
-  #- from-file: common/main.yml
-  #- from-file: common/nvidia.yml
+  - from-file: common/main.yml
+  - from-file: common/nvidia.yml
   
   - type: signing # Necessary for signing files
