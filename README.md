@@ -1,18 +1,14 @@
 # Nargothrond OS
 
-[![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml)
-[![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml)
-[![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml)
-
 [Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on [Universal Blue](https://github.com/orgs/ublue-os/packages)'s version of Fedora Silverblue and built using a [BlueBuild](https://blue-build.org/how-to/setup/) template. Made for laptops with undervolting support and NVIDIA GPUs, it is **intended solely for personal use and playground purposes only**.
 
 ## System changes
 
-Three images are provided with the following difference:
+Three images are provided with the following differences:
 
-* `nargothrond-main`: a base image with fully open source GPU drivers.
-* `nargothrond-nvidia`: comes with latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/) on top of the base image.
-* `nargothrond-nvidia-open`: uses NVIDIA's open kernel modules instead of proprietary ones.
+* [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml) is the base image with fully open source GPU drivers.
+* [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml) comes with the latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/) on top of the base image.
+* [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml) uses NVIDIA's open kernel modules instead of proprietary ones.
 
 All come with the following common changes:
 
