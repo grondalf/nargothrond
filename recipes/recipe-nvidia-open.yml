@@ -10,6 +10,7 @@ image-version: 43  # Or "latest"
 
 modules:
   - type: akmods
+    base: main
     install: [] 
     nvidia-driver: nvidia-open
     
