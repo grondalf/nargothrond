@@ -24,6 +24,10 @@ modules:
       packages:
         - polkit
         - python-envycontrol
+
+  - type: gnome-extensions
+    install:
+      - 5009  # GPU Profile Selector
         
   - from-file: common.yml
 
