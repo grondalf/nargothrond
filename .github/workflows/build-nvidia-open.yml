@@ -1,4 +1,4 @@
-name: nargothrond-nvidia-open
+name: nvidia-open
 on:
   schedule:
     - cron:
