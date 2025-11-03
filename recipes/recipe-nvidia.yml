@@ -12,13 +12,14 @@ modules:
   - type: akmods
     install: [] 
     nvidia-driver: nvidia
-    
+          
+  - from-file: common.yml
+
   - type: files
     files:
       - source: system/etc/environment
         destination: /etc/
       - source: system/kargs/nvidia-config.toml
         destination: /usr/lib/bootc/kargs.d/
-        
-  - from-file: common.yml
 
+  - type: signing # Necessary for signing files
