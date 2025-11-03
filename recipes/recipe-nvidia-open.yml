@@ -15,6 +15,5 @@ modules:
     nvidia-driver: nvidia-open
 
   - from-file: common/main.yml
-  - from-file: common/nvidia.yml
   
   - type: signing # Necessary for signing files
