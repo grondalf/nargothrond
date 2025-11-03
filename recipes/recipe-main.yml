@@ -1,3 +1,4 @@
+---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 
@@ -10,6 +11,6 @@ image-version: 43  # Or "latest"
 # Module configuration, executed in order. Multiple instances of the same module is permitted.
 
 modules:
-  - from-file: /common/main.yml
+  - from-file: common/main.yml
 
   - type: signing # Necessary for signing files
