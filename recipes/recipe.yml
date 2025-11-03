@@ -11,3 +11,5 @@ image-version: 43  # Or "latest"
 
 modules:
   - from-file: common.yml
+
+  - type: signing # Necessary for signing files
