@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 
 name: nargothrond-nvidia-open
-description: This is my personal OS image with proprietary NVIDIA drivers.
+description: This is my personal OS image with NVIDIA's open kernel drivers.
 
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 43  # Or "latest"
