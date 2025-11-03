@@ -1,6 +1,6 @@
 # Nargothrond OS
 
-[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on [Universal Blue](https://github.com/orgs/ublue-os/packages)'s version of Fedora Silverblue and built using a [BlueBuild](https://blue-build.org/how-to/setup/) template. Made for laptops with undervolting support and NVIDIA GPUs, it is **intended solely for personal use and playground purposes only**.
+[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on [Universal Blue](https://github.com/orgs/ublue-os/packages)'s version of Fedora Silverblue and built using a [BlueBuild](https://blue-build.org/how-to/setup/) template. Made for laptops with undervolting support and NVIDIA GPUs, all provided images are **intended solely for personal use and playground purposes only**.
 
 ## System changes
 
