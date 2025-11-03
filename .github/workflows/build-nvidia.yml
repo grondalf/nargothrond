@@ -1,4 +1,4 @@
-name: nargothrond-nvidia
+name: nvidia
 on:
   schedule:
     - cron:
