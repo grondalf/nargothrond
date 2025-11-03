@@ -20,3 +20,10 @@ modules:
   - type: gnome-extensions
     install:
       - 5009  # GPU Profile Selector
+
+  - type: files
+    files:
+      - source: system/etc/environment
+        destination: /etc/
+      - source: system/kargs/nvidia-config.toml
+        destination: /usr/lib/bootc/kargs.d/
