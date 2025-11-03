@@ -11,7 +11,6 @@ modules:
         - atim/starship
         - atim/preload
         - abn/throttled
-        - sunwire/envycontrol 
       keys:
         - https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key   # insync keys
       files:
@@ -25,19 +24,25 @@ modules:
         - tailscale
         - steam-devices
         - uld # Samsung printer support
-        - lsfg-vk
-        - insync
-        - insync-nautilus
         - preload 
         - gamemode
         - android-tools
         - gh
         - rsync
+        #- lsfg-vk
+        # ----------------------------------------- #
+        # Insync
+        # ----------------------------------------- #        
+        - insync
+        - insync-nautilus
+        # ----------------------------------------- #
         # Support for mouse key-bindings
+        # ----------------------------------------- #
         - xbindkeys
         - xdotool
-        - python-envycontrol
+        # ----------------------------------------- #
         # GNOME Extensions
+        # ----------------------------------------- #
         - gnome-shell-extension-appindicator
         - gnome-shell-extension-gamemode
         - gnome-shell-extension-blur-my-shell
@@ -49,12 +54,20 @@ modules:
     remove:
       auto-remove: true
       packages:
-        # --- Fedora ---
+        # ----------------------------------------- #
+        # Fedora Defaults
+        # ----------------------------------------- #
         - fedora-bookmarks
         - fedora-chromium-config
         - fedora-chromium-config-gnome
         - fedora-flathub-remote
-        # --- Gnome ---
+        - firefox
+        - firefox-langpacks
+        - thermald
+        - htop
+        # ----------------------------------------- #
+        # GNOME Defaults
+        # ----------------------------------------- #
         - gnome-classic-session
         - gnome-shell-extensions-apps-menu
         - gnome-shell-extension-background-logo
@@ -66,14 +79,11 @@ modules:
         - gnome-tour
         - gnome-software
         - totem-video-thumbnailer
-        # --- Unused firmware ---
+        # ----------------------------------------- #
+        # Unused firmware
+        # ----------------------------------------- #
         - amd-gpu-firmware
         - amd-ucode-firmware
-        # --- Other ---
-        - firefox
-        - firefox-langpacks
-        - thermald
-        - htop
         
   - type: script
     scripts:
