@@ -195,5 +195,3 @@ modules:
       - zz1.settings.gschema.override
       #- zz2.extensions.gschema.override
       - zz3.extension-settings.gschema.override
-      
-  - type: signing # Necessary for signing files
