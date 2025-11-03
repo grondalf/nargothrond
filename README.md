@@ -8,9 +8,9 @@
 
 ## System changes
 
-Three images are provided with a distinguishable difference:
+Three images are provided with the following difference:
 
-* `nargothrond`: a base image with fully open source GPU drivers.
+* `nargothrond-main`: a base image with fully open source GPU drivers.
 * `nargothrond-nvidia`: comes with latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/) on top of the base image.
 * `nargothrond-nvidia-open`: uses NVIDIA's open kernel modules instead of proprietary ones.
 
