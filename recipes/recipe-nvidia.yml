@@ -9,33 +9,7 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 43  # Or "latest"
 
 modules:
-  - type: akmods
-    base: main
-    install: [] 
-    nvidia-driver: nvidia
-    
-  - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        - sunwire/envycontrol
-    install:
-      skip-unavailable: true
-      packages:
-        - polkit
-        - python-envycontrol
-
-  - type: gnome-extensions
-    install:
-      - 5009  # GPU Profile Selector
-        
-  - from-file: common.yml
-
-  - type: files
-    files:
-      - source: system/etc/environment
-        destination: /etc/
-      - source: system/kargs/nvidia-config.toml
-        destination: /usr/lib/bootc/kargs.d/
-
+  - from-file: /common/nvidia.yml
+  - from-file: /common/main.yml
+  
   - type: signing # Necessary for signing files
