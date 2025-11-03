@@ -9,7 +9,12 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 43  # Or "latest"
 
 modules:
-  - from-file: common/nvidia-open.yml
+  - type: akmods
+    base: main
+    install: [] 
+    nvidia-driver: nvidia
+
   - from-file: common/main.yml
+  - from-file: common/nvidia.yml
   
   - type: signing # Necessary for signing files
