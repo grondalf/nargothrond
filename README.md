@@ -2,13 +2,18 @@
 
 [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
 
-[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on [Universal Blue](https://github.com/orgs/ublue-os/packages)'s version of Fedora Silverblue and built using a [BlueBuild](https://blue-build.org/how-to/setup/) template. It is **intended solely for personal use and playground purposes only**.
+[Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on [Universal Blue](https://github.com/orgs/ublue-os/packages)'s version of Fedora Silverblue and built using a [BlueBuild](https://blue-build.org/how-to/setup/) template. Made for laptops with undervolting support and NVIDIA GPUs, it is **intended solely for personal use and playground purposes only**.
 
 ## System changes
 
-This image comes with the following changes:
+Three images are provided with a distinguishable difference:
 
-* The latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/).   
+* 'nargothrond': a base image with fully open source GPU drivers.
+* 'nargothrond-nvidia': comes with latest NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/) on top of the base image.
+* 'nargothrond-nvidia-open': uses NVIDIA's open kernel modules instead of proprietary ones.
+
+All come with the following common changes:
+
 * Electronic signtures support with [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx).
 * The `rpm-ostreed-automatic.service` service is disabled in favour of `bootc-fetch-apply-updates.service`.
 An override has been set for the latter to avoid automatic reboots.
