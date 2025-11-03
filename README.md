@@ -4,14 +4,7 @@
 
 ## System changes
 
-Three images are provided with the following differences:
-
-* [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml) = base image.
-* [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml) = base image + NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/).
-* [![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml) = base image + NVIDIA's open kernel modules.
-
-All come with the following common changes:
-
+* NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/).
 * Electronic signtures support with [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx).
 * The `rpm-ostreed-automatic.service` service is disabled in favour of `bootc-fetch-apply-updates.service`.
 An override has been set for the latter to avoid automatic reboots.
