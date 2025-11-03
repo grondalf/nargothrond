@@ -1,4 +1,4 @@
-name: main
+name: nargothrond-main
 on:
   schedule:
     - cron:
