@@ -14,6 +14,21 @@ modules:
     install: [] 
     nvidia-driver: nvidia-open
     
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - sunwire/envycontrol
+    install:
+      skip-unavailable: true
+      packages:
+        - polkit
+        - python-envycontrol
+
+  - type: gnome-extensions
+    install:
+      - 5009  # GPU Profile Selector
+      
   - from-file: common.yml
 
   - type: signing # Necessary for signing files
