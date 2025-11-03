@@ -10,6 +10,6 @@ image-version: 43  # Or "latest"
 # Module configuration, executed in order. Multiple instances of the same module is permitted.
 
 modules:
-  - from-file: common.yml
+  - from-file: /common/main.yml
 
   - type: signing # Necessary for signing files
