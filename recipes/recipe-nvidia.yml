@@ -13,7 +13,18 @@ modules:
     base: main
     install: [] 
     nvidia-driver: nvidia
-          
+    
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - sunwire/envycontrol
+    install:
+      skip-unavailable: true
+      packages:
+        - polkit
+        - python-envycontrol
+        
   - from-file: common.yml
 
   - type: files
