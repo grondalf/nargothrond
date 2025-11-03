@@ -30,7 +30,7 @@ jobs:
       matrix:
         recipe:
           # !! Add your recipes here
-          - recipe-main.yml
+          - recipe.yml
           - recipe-nvidia.yml
           - recipe-nvidia-open.yml
     steps:
