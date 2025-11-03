@@ -1,6 +1,8 @@
 # Nargothrond OS
 
-[![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build.yml)
+[![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-main.yml)
+[![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia.yml)
+[![bluebuild build badge](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml/badge.svg)](https://github.com/grondalf/nargothrond/actions/workflows/build-nvidia-open.yml)
 
 [Nargothrond](https://tolkiengateway.net/wiki/Nargothrond) OS is an immutable atomic image based on [Universal Blue](https://github.com/orgs/ublue-os/packages)'s version of Fedora Silverblue and built using a [BlueBuild](https://blue-build.org/how-to/setup/) template. Made for laptops with undervolting support and NVIDIA GPUs, it is **intended solely for personal use and playground purposes only**.
 
