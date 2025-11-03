@@ -26,9 +26,13 @@ An override has been set for the latter to avoid automatic reboots.
 
 To rebase an existing atomic Fedora installation to the latest build:
 
-- First rebase to the unsigned image, to get the proper signing keys and policies installed:
+- First choose one of the image `$VERSION`:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/grondalf/nargothrond:latest
+  $VERSION = main, nvidia or nvidia-open
+  ``` 
+- Then rebase to the unsigned image, to get the proper signing keys and policies installed:
+  ```
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/grondalf/nargothrond-$VERSION:latest
   ```
 - Reboot to complete the rebase:
   ```
@@ -36,7 +40,7 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/grondalf/nargothrond:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/grondalf/nargothrond-$VERSION:latest
   ```
 - Reboot again to complete the installation
   ```
