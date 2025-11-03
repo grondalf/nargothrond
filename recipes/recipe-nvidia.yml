@@ -6,7 +6,7 @@ name: nargothrond-nvidia
 description: This is my personal OS image with proprietary NVIDIA drivers.
 
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 43  # Or "latest"
+image-version: 42  # Or "latest"
 
 modules:
   - type: akmods
