@@ -2,8 +2,8 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 
-name: nargothrond-nvidia-open
-description: This is my personal OS image with NVIDIA's open kernel drivers.
+name: nargothrond-lts
+description: This is an experimental build with older NVIDIA drivers.
 
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 42  # Or "latest"
@@ -41,4 +41,4 @@ modules:
 
   - type: initramfs
 
-- type: signing # Necessary for signing files
+  - type: signing # Necessary for signing files
