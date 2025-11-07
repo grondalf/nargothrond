@@ -6,7 +6,7 @@ name: nargothrond-nvidia-open
 description: This is my personal OS image with NVIDIA's open kernel drivers.
 
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 43  # Or "latest"
+image-version: 42  # Or "latest"
 
 modules:
   - type: dnf
@@ -24,10 +24,21 @@ modules:
     install:
       install-weak-deps: true
       packages:
-        packages:
-          - kernel-longterm
-          - kernel-longterm-core
-          - kernel-longterm-modules
-          - kernel-longterm-modules-extra
+        - kernel-longterm
+        - kernel-longterm-core
+        - kernel-longterm-modules
+        - kernel-longterm-modules-extra
+          
+  - type: dnf
+    install:
+      packages:
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/nvidia-driver-560.35.05-1.fc39.x86_64.rpm
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/nvidia-modprobe-560.35.05-1.fc39.x86_64.rpm
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/nvidia-persistenced-560.35.05-1.fc39.x86_64.rpm
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/nvidia-settings-560.35.05-1.fc39.x86_64.rpm
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/nvidia-libXNVCtrl-560.35.05-1.fc39.x86_64.rpm
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/nvidia-xconfig-560.35.05-1.fc39.x86_64.rpm
+
+  - type: initramfs
 
 - type: signing # Necessary for signing files
