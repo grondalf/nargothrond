@@ -1,0 +1,21 @@
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        -  kwizart/kernel-longterm-6.6
+    remove:
+      packages:
+        - kernel
+        - kernel-core
+        - kernel-modules
+        - kernel-modules-core
+        - kernel-modules-extra
+    install:
+      install-weak-deps: true
+      packages:
+        packages:
+          - kernel-longterm
+          - kernel-longterm-core
+          - kernel-longterm-modules
+          - kernel-longterm-modules-extra
