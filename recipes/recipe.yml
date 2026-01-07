@@ -6,7 +6,7 @@ name: nargothrond
 description: This is my personal OS image with proprietary NVIDIA drivers.
 
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 43  # Or "latest"
+image-version: latest
 
 modules:
   # -----------------------------------------------
@@ -16,21 +16,6 @@ modules:
     base: main
     install: [] 
     nvidia-driver: nvidia
-
-  - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        - sunwire/envycontrol
-    install:
-      skip-unavailable: true
-      packages:
-        - polkit
-        - python-envycontrol
-
-  - type: gnome-extensions
-    install:
-      - 5009  # GPU Profile Selector
 
   - type: files
     files:
@@ -49,8 +34,7 @@ modules:
         - steam-devices
         - gamemode
         - android-tools
-        - gh
-        - rsync
+
     remove:
       auto-remove: true
       packages:
@@ -87,13 +71,7 @@ modules:
         - throttled
         - starship
         - tailscale
-        - steam-devices
-        - uld # Samsung printer support
-        - gamemode
-        - android-tools
-        - gh
-        - rsync
-        #- lsfg-vk
+        - uld # Samsung printer suppor
         # ----------------------------------------- #
         # Insync
         # ----------------------------------------- #        
@@ -109,7 +87,7 @@ modules:
     scripts:
       - setup-papirus.sh
       - setup-gamemode.sh
-      #- setup-flathub.sh
+      - setup-flathub.sh
       #- setup-autofirma.sh
       
   - type: default-flatpaks
@@ -127,15 +105,8 @@ modules:
           - com.mattjakeman.ExtensionManager
           - de.haeckerfelix.Fragments
           - io.gitlab.adhami3310.Impression
-          - org.gnome.Calculator
-          - org.gnome.Calendar
-          - org.gnome.Contacts
-          - org.gnome.Logs
-          - org.gnome.Loupe
           - org.gnome.SimpleScan
           - org.gnome.Showtime
-          - org.gnome.TextEditor
-          - org.gnome.Papers
           - com.github.Matoking.protontricks
           - com.github.jeromerobert.pdfarranger
           - com.heroicgameslauncher.hgl
@@ -151,25 +122,20 @@ modules:
           - io.github.flattool.Warehouse
           - md.obsidian.Obsidian
           - org.gnome.Geary
-          - org.gnome.TextEditor
           - org.onlyoffice.desktopeditors
           - io.github.fabrialberio.pinapp
           - page.tesk.Refine
           - fm.reaper.Reaper
           - com.calibre_ebook.calibre
-          - io.bassi.Amberol
           - org.nickvision.tubeconverter
           - org.rncbc.qpwgraph
           - org.bleachbit.BleachBit
           - app.drey.EarTag
-          - org.gnome.DejaDup
           - com.github.wwmm.easyeffects
           - com.valvesoftware.Steam.CompatibilityTool.Proton-GE
           - org.freedesktop.Platform.VAAPI.nvidia
           - org.freedesktop.Platform.VAAPI.Intel
           - io.github.kolunmi.Bazaar
-          - io.github.peazip.PeaZip
-          - https://github.com/0FL01/AyuGramDesktop-flatpak/releases/download/flatpak-v6.2.4-20251108180828/ayugram-desktop-6.2.4.flatpak
       
   - type: files
     files:
