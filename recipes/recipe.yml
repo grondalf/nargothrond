@@ -30,20 +30,13 @@ modules:
       skip-unavailable: true
       packages:
         - steam-devices
-        - gamemode
         - android-tools
 
     remove:
       auto-remove: true
       packages:
-        # ----------------------------------------- #
-        #  Firefox removal (replaced with flatpak)
-        # ----------------------------------------- #
         - firefox
         - firefox-langpacks
-        # ----------------------------------------- #
-        #  GNOME Default Apps removal
-        # ----------------------------------------- #
         - gnome-tour
 
   # -----------------------------------------------
@@ -69,10 +62,7 @@ modules:
         - throttled
         - starship
         - tailscale
-        - uld # Samsung printer suppor
-        # ----------------------------------------- #
-        # Insync
-        # ----------------------------------------- #        
+        - uld      
         - insync
         - insync-nautilus
 
@@ -83,7 +73,7 @@ modules:
         
   - type: script
     scripts:
-      - setup-papirus.sh
+      #- setup-papirus.sh
       - setup-flathub.sh
       - setup-autofirma.sh
       
