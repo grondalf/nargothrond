@@ -21,8 +21,6 @@ modules:
     files:
       - source: system/etc/environment
         destination: /etc/
-      - source: system/kargs/nvidia-config.toml
-        destination: /usr/lib/bootc/kargs.d/
 
   # -----------------------------------------------
   #  Main repos and packages
@@ -144,7 +142,7 @@ modules:
         destination: /etc/
       - source: system/dev/starship-profile
         destination: /etc/profile.d/
-
+     
   - type: justfiles
   
   - type: systemd
@@ -161,7 +159,6 @@ modules:
       - 517   # Caffeine
       - 615   # AppIndicator Support
       - 1319  # GSConnect
-      - 97    # Coverflow Alt-Tab
       - 3780  # ddterm
       - 4158  # Gnome 4x UI Improvements
       - 2236  # Night Theme Switcher
