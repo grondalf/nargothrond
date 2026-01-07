@@ -86,9 +86,8 @@ modules:
   - type: script
     scripts:
       - setup-papirus.sh
-      - setup-gamemode.sh
       - setup-flathub.sh
-      #- setup-autofirma.sh
+      - setup-autofirma.sh
       
   - type: default-flatpaks
     configurations:
