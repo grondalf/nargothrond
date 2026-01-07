@@ -7,6 +7,7 @@
 * NVIDIA propietary drivers from [negativo17](https://negativo17.org/repositories/).
 * Electronic signtures support with [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx).
 * Undervolt support with [throttled](https://github.com/throttled/throttled)
+* Cloud sync with Insync with nautilus integration included.
 * A selection of useful extensions have been included along with a few modifications to GNOME's defaults.
 * Some default pre-installed rpm packages and flatpaks been removed or added.
 
