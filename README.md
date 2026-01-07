@@ -8,7 +8,7 @@
 * Electronic signtures support with [Autofirma](https://sede.serviciosmin.gob.es/ES-ES/FIRMAELECTRONICA/Paginas/AutoFirma.aspx).
 * Undervolt support with [throttled](https://github.com/throttled/throttled)
 * A selection of useful extensions have been included along with a few modifications to GNOME's defaults.
-* Some default pre-installed [rpm packages](recipes/dnf.yml) and [flatpaks](recipes/default-flatpaks.yml) have been removed or added.
+* Some default pre-installed rpm packages and flatpaks been removed or added.
 
 ## Installation
 
